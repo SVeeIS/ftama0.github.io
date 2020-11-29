@@ -22,7 +22,7 @@
                 <section id="contact">
                     <div class="inner">
                         <section>
-                            <form method="post" action="beranda.html" id="myForm" onsubmit="return validasi()">
+                            <form method="post" action="beranda.html">
                                 <div class="fields">
                                     <div class="field half">
                                         <label for="name">Username</label>
@@ -77,22 +77,6 @@
         <script src="assets/js/main.js"></script>
 
 </body>
- <!-- Scripts Login -->
- <script type="text/javascript">
-    function validasi(){
-      var username = document.forms["myForm"]["username"].value;
-      var password = document.forms["myForm"]["password"].value;
-      if( username == "admin" && password == "admin"){
-        return true;
-      }
-      else if(username =="" || password ==""){
-        alert("Masukan username dan password Anda");
-        return false;
-      }
-      else{
-        alert("Username atau password yang Anda masukan SALAH");
-        return false;
-      }
-    }
+
   </script>
 </html>
