@@ -4,8 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Masuk</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="icon" href="Logo/HMTI2020.png">
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
-<body>
-    
+<body class="is-preload">
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Header -->
+                <header id="header" class="alt">
+                    <a href="#" class="logo"><strong>Pemilu</strong> <span>HMTI 2021</span></a>
+                </header>
+
+            <!-- SignUp -->
+                <section id="contact">
+                    <div class="inner">
+                        <section>
+                            <form method="post" action="beranda.html" id="myForm" onsubmit="return validasi()">
+                                <div class="fields">
+                                    <div class="field half">
+                                        <label for="name">Username</label>
+                                        <input type="text" name="username" id="username" />
+                                    </div>
+                                    <div class="field half">
+                                        <label for="password">Password</label>
+                                        <input type="password" name="password" id="password" />
+                                    </div>
+                                </div>
+                                <ul class="actions">
+                                    <li><input type="submit" value="Masuk" class="primary" /></li>
+                                    <li><input type="reset" value="Reset" /></li>
+                                </ul>
+                            </form>
+                        </section>
+                        <section class="split">
+                            <section>
+                                <div class="contact-method">
+                                    <h2>Belum punya Akun ?</h2>
+                                    <p>Daftar Sekarang </p>
+                                    <button type="button" onclick="window.location.href='index.html'">Masuk</button>
+                                </div>
+                            </section>
+                        </section>
+                    </div>
+                </section>
+
+            <!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="https://www.youtube.com/channel/UCBWvors8mO16aa-GCyscrKw" class="icon brands alt fa-youtube"><span class="label">Twitter</span></a></li>
+								<li><a href="https://www.facebook.com/HMTIFTunlam/" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="https://www.instagram.com/hmti_ftulm/" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="https://www.hmti.ft.ulm.ac.id/" class="icon brands alt fa-wordpress"><span class="label">Website</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; PEMILU HMTI 2021</li><li>Design: <a href="https://www.hmti.ft.ulm.ac.id/">HMTI</a></li>
+							</ul>
+						</div>
+					</footer>
+        </div>
+
+    <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+
 </body>
+ <!-- Scripts Login -->
+ <script type="text/javascript">
+    function validasi(){
+      var username = document.forms["myForm"]["username"].value;
+      var password = document.forms["myForm"]["password"].value;
+      if( username == "admin" && password == "admin"){
+        return true;
+      }
+      else if(username =="" || password ==""){
+        alert("Masukan username dan password Anda");
+        return false;
+      }
+      else{
+        alert("Username atau password yang Anda masukan SALAH");
+        return false;
+      }
+    }
+  </script>
 </html>
