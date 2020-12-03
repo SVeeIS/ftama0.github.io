@@ -124,7 +124,7 @@ include('includes/config.php');
 													<div class="stat-panel-title text-uppercase">Jumlah Suara Masuk</div>
 												</div>
 											</div>
-											<a href="voting.php/#memilih" class="block-anchor panel-footer text-center">Rincian &nbsp; <i class="fa fa-arrow-right"></i></a>
+											<a href="usersudah.php" class="block-anchor panel-footer text-center">Rincian &nbsp; <i class="fa fa-arrow-right"></i></a>
 										</div>
 									</div>
 									
@@ -141,7 +141,7 @@ include('includes/config.php');
 													<div class="stat-panel-title text-uppercase">User Belum Memilih</div>
 												</div>
 											</div>
-											<a href="voting.php/#belum" class="block-anchor panel-footer text-center">Rincian &nbsp; <i class="fa fa-arrow-right"></i></a>
+											<a href="userbelum.php" class="block-anchor panel-footer text-center">Rincian &nbsp; <i class="fa fa-arrow-right"></i></a>
 										</div>
 									</div>
 								

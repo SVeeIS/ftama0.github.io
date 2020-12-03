@@ -22,7 +22,7 @@
 					<ul class="ts-sidebar-menu">
 						<li><a href="voting.php">Perolehan Suara</a></li>	
 						<li><a href="usersudah.php">Daftar User Sudah Memilih</a></li>				  						
-						<li><a href="userbelum.php">Daftar User Sudah Memilih</a></li>
+						<li><a href="userbelum.php">Daftar User Belum Memilih</a></li>
 					</ul>
 				</li>
 			</ul>
