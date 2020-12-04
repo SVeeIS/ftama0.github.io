@@ -138,7 +138,7 @@ header('location:index.php');
 
 										<div class="form-group">
 											<div class="col-sm-4">
-												<img src="img/calon/<?php echo htmlentities($result['foto']);?>" width="300" height="200" style="border:solid 1px #000">
+												<img src="../images/<?php echo htmlentities($result['foto']);?>" width="300" height="200" style="border:solid 1px #000">
 												<a href="gantifotocalon.php?nim_calon=<?php echo htmlentities($result['nim_calon'])?>">Ganti Foto</a>
 											</div>
 										</div>

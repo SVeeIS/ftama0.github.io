@@ -92,8 +92,9 @@ if(strlen($_SESSION['alogin'])==0){
 											<td><?php echo htmlentities($result['no_urut']);?></td>
 											<td><a href="#myModal" data-toggle="modal" data-load-code="<?php echo $result['nim_calon_ketua']; ?>" data-remote-target="#myModal .modal-body"><?php echo $result['nim_calon_ketua']; ?></a></td>
 											<td><a href="#myModal" data-toggle="modal" data-load-code="<?php echo $result['nim_calon_wakil']; ?>" data-remote-target="#myModal .modal-body"><?php echo $result['nim_calon_wakil']; ?></a></td>
-											<td><a href="img/calon/<?php echo htmlentities($result['foto_pasangan_calon']);?>" target="blank"><img src="img/calon/<?php echo htmlentities($result['foto_pasangan_calon']);?>" width="40" height="30"></a></td>
+											<td><a href="../images/<?php echo htmlentities($result['foto_pasangan_calon']);?>" target="blank"><img src="../images/<?php echo htmlentities($result['foto_pasangan_calon']);?>" width="40" height="30"></a></td>
 											<td class="text-center">
+												<a href="#myModal" data-toggle="modal" data-load-id="<?php echo $result['no_urut']; ?>" data-remote-target="#myModal .modal-body"><span class="glyphicon glyphicon-eye-open"></span></a>&nbsp;&nbsp;&nbsp;
 											    <a href="calonpsgedit.php?id=<?php echo $result['no_urut'];?>"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
 												<a href="votedel.php?id=<?php echo $result['no_urut'];?>" onclick="return confirm('Apakah anda akan menghapus pasangan calon dengan No. Urut <?php echo $result['no_urut'];?>?');"><i class="fa fa-close"></i></a></td>
 										</tr>
@@ -138,6 +139,16 @@ if(strlen($_SESSION['alogin'])==0){
 					var code = $this.data('load-code');
 					if(code) {
 						$($this.data('remote-target')).load('bioview.php?code='+code);
+						app.code = code;
+						
+					}
+		});		
+		$('[data-load-id]').on('click',function(e) {
+					e.preventDefault();
+					var $this = $(this);
+					var code = $this.data('load-id');
+					if(code) {
+						$($this.data('remote-target')).load('calonview.php?code='+code);
 						app.code = code;
 						
 					}

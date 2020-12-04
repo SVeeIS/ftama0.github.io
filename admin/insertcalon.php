@@ -9,7 +9,7 @@ $jk = $_POST['jk'];
 $tempat=$_POST['tempat'];
 $tanggal=$_POST['tanggal'];
 $foto=$_FILES["foto"]["name"];
-move_uploaded_file($_FILES["foto"]["tmp_name"],"img/calon/".$_FILES["foto"]["name"]);
+move_uploaded_file($_FILES["foto"]["tmp_name"],"../images/".$_FILES["foto"]["name"]);
 $sql 	= "INSERT INTO biodata_calon (nim_calon, nama_calon, angkatan, tempat_lahir, tanggal_lahir, jenis_kelamin, foto, instagram)
 			VALUES ('$nim','$nama','$angkatan','$tempat','$tanggal','$jk','$foto','$instagram')";
 $query 	= mysqli_query($koneksidb,$sql);

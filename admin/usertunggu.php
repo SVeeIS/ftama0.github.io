@@ -98,8 +98,8 @@ else{
 											<td><?php echo htmlentities($result['nim_user']);?></td>
 											<td><?php echo htmlentities($result['nama_user']);?></td>
 											<td><?php echo htmlentities($result['angkatan']);?></td>
-											<td><a href="img/calon/<?php echo htmlentities($result['foto_user']);?>" target="blank"><img src="img/calon/<?php echo htmlentities($result['foto_user']);?>" width="40" height="30"></a></td>
-                                            <td><a href="img/calon/<?php echo htmlentities($result['foto_ktm']);?>" target="blank"><img src="img/calon/<?php echo htmlentities($result['foto_ktm']);?>" width="40" height="30"></a></td>
+											<td><a href="../images/<?php echo htmlentities($result['foto_user']);?>" target="blank"><img src="../images/<?php echo htmlentities($result['foto_user']);?>" width="40" height="30"></a></td>
+                                            <td><a href="../images/<?php echo htmlentities($result['foto_ktm']);?>" target="blank"><img src="../images/<?php echo htmlentities($result['foto_ktm']);?>" width="40" height="30"></a></td>
 											<td>
                                                 <a href="#myModal" data-toggle="modal" data-load-code="<?php echo $result['nim_user']; ?>" data-remote-target="#myModal .modal-body"><span class="fa fa-edit"></span></a>&nbsp;&nbsp;&nbsp;
 											</td>

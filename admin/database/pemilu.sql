@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2020 at 03:19 PM
+-- Generation Time: Dec 05, 2020 at 12:04 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -44,8 +44,10 @@ CREATE TABLE `biodata_calon` (
 --
 
 INSERT INTO `biodata_calon` (`nim_calon`, `nama_calon`, `angkatan`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `foto`, `instagram`) VALUES
-('1810817120011', 'Ananda', 0, '', '1970-01-02', 'Perempuan', 'satu.png', ''),
-('1810817710001', 'Christanto P. Burongan', 2018, 'Philippines', '2000-02-02', 'Laki - Laki', 'dua.png', 'crist');
+('181081711001122', 'M. Basri', 2018, '', '2000-01-02', 'Laki - Laki', 'bio2.jpg', ''),
+('18108171100999', 'Noval Aprianda', 2018, 'Banjarmasin', '1999-03-02', 'Laki - Laki', 'bio1.jpg', 'noval_sejuta_jaringan'),
+('1810817210083', 'M. Azmi', 2018, '', '0000-00-00', 'Laki - Laki', 'bio4.jpg', ''),
+('1810817710001', 'Christanto P. Burongan', 2018, 'Philippines', '2000-02-02', 'Laki - Laki', 'bio3.jpg', 'crist');
 
 -- --------------------------------------------------------
 
@@ -65,8 +67,8 @@ CREATE TABLE `calon` (
 --
 
 INSERT INTO `calon` (`no_urut`, `nim_calon_ketua`, `nim_calon_wakil`, `foto_pasangan_calon`) VALUES
-(1, '1810817710001', '1810817710001', 'tiga.png'),
-(2, '1810817710001', '1810817710001', 'tuaga.png');
+(1, '18108171100999', '181081711001122', 'paslon1.jpg'),
+(2, '1810817710001', '1810817710001', 'paslon2.jpg');
 
 -- --------------------------------------------------------
 
@@ -85,7 +87,8 @@ CREATE TABLE `misi` (
 --
 
 INSERT INTO `misi` (`id_misi`, `no_urut`, `isi_misi`) VALUES
-(1, 1, 'Meyakinkan');
+(1, 1, 'Membentuk study english club'),
+(2, 1, 'A16 full AC');
 
 -- --------------------------------------------------------
 
@@ -109,8 +112,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`nim_user`, `nama_user`, `angkatan`, `password`, `foto_user`, `foto_ktm`, `status_registrasi`, `status_vote`) VALUES
-('1810817110018', 'Ferry Pratama', 2018, 'ferry', 'satu.png', 'satu.png', 'Menunggu Verifikasi', 'Belum Memilih'),
-('1810817120003', 'Silvia Handayani', 2018, 'silvia', 'satudua.png', 'dua.png', 'Menunggu Verifikasi', 'Belum Memilih');
+('1810817110018', 'Ferry Pratama', 2018, 'ferry', 'pic03.jpg', 'pic06.jpg', 'Menunggu Verifikasi', 'Belum Memilih'),
+('1810817120003', 'Silvia Handayani', 2018, 'silvia', 'pic06.jpg', 'pic03.jpg', 'Menunggu Verifikasi', 'Belum Memilih');
 
 -- --------------------------------------------------------
 
@@ -129,7 +132,7 @@ CREATE TABLE `visi` (
 --
 
 INSERT INTO `visi` (`id_visi`, `no_urut`, `isi_visi`) VALUES
-(1, 1, 'aaaaaa');
+(1, 1, 'Menjadikan PSTI sebagai wadah apresiasi');
 
 -- --------------------------------------------------------
 
@@ -204,7 +207,7 @@ ALTER TABLE `vote`
 -- AUTO_INCREMENT for table `misi`
 --
 ALTER TABLE `misi`
-  MODIFY `id_misi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_misi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `visi`
@@ -216,7 +219,7 @@ ALTER TABLE `visi`
 -- AUTO_INCREMENT for table `vote`
 --
 ALTER TABLE `vote`
-  MODIFY `id_vote` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_vote` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

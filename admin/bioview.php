@@ -74,7 +74,7 @@ else {
 	<div class="form-group">
 		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama">Foto</label>
 			<div class="col-md-6 col-sm-6 col-xs-12">
-				<img src="img/calon/<?php echo htmlentities($result['foto']);?>" width="200" height="150">
+				<img src="../images/<?php echo htmlentities($result['foto']);?>" width="200" height="150">
 			</div>
 	</div>
 	

@@ -130,7 +130,7 @@ header('location:index.php');
 
 										<div class="form-group">
 											<div class="col-sm-4">
-												<img src="img/calon/<?php echo htmlentities($result['foto_pasangan_calon']);?>" width="300" height="200" style="border:solid 1px #000">
+												<img src="../images/<?php echo htmlentities($result['foto_pasangan_calon']);?>" width="300" height="200" style="border:solid 1px #000">
 												<a href="gantifotocalonpsg.php?no_urut=<?php echo htmlentities($result['no_urut'])?>">Ganti Foto</a>
 											</div>
 										</div>

@@ -8,7 +8,7 @@ if(strlen($_SESSION['alogin'])==0){
 if(isset($_POST['update'])){
 	$foto=$_FILES["foto"]["name"];
 	$id=$_POST['id'];
-	move_uploaded_file($_FILES["foto"]["tmp_name"],"img/calon/".$_FILES["foto"]["name"]);
+	move_uploaded_file($_FILES["foto"]["tmp_name"],"../images/".$_FILES["foto"]["name"]);
 	$sql="update calon set foto_pasangan_calon='$foto' where no_urut='$id'";
 	$query	= mysqli_query($koneksidb, $sql);
 	echo "<script type='text/javascript'>
@@ -97,7 +97,7 @@ if(isset($_POST['update'])){
 												while ($result = mysqli_fetch_array($query)){
 												?>
 												<div class="col-sm-8">
-													<img src="img/calon/<?php echo htmlentities($result['foto_pasangan_calon']);?>" width="300" height="200" style="border:solid 1px #000">
+													<img src="../images/<?php echo htmlentities($result['foto_pasangan_calon']);?>" width="300" height="200" style="border:solid 1px #000">
 												</div>
 											<?php }?>
 											</div>

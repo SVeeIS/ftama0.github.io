@@ -97,7 +97,7 @@ if(strlen($_SESSION['alogin'])==0){
 											<td><?php echo htmlentities($result['angkatan']);?></td>
 											<td><?php echo htmlentities($result['tempat_lahir']);?>, <?php echo IndonesiaTgl(htmlentities($result['tanggal_lahir']));?></td>
 											<td><?php echo htmlentities($result['jenis_kelamin']);?></td>
-											<td><a href="img/calon/<?php echo htmlentities($result['foto']);?>" target="blank"><img src="img/calon/<?php echo htmlentities($result['foto']);?>" width="40" height="30"></a></td>
+											<td><a href="../images/<?php echo htmlentities($result['foto']);?>" target="blank"><img src="../images/<?php echo htmlentities($result['foto']);?>" width="40" height="30"></a></td>
 											<td><?php echo htmlentities($result['instagram']);?></td>
 											<td class="text-center">
 											    <a href="#myModal" data-toggle="modal" data-load-code="<?php echo $result['nim_calon']; ?>" data-remote-target="#myModal .modal-body"><span class="glyphicon glyphicon-eye-open"></span></a>&nbsp;&nbsp;&nbsp;
