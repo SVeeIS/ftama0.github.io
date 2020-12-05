@@ -18,15 +18,15 @@
                     <a href="#" class="logo"><strong>Pemilu</strong> <span>HMTI 2021</span></a>
                 </header>
 
-            <!-- SignUp -->
+            <!-- SignIn -->
                 <section id="contact">
                     <div class="inner">
                         <section>
-                            <form method="post" action="beranda.html" id="myForm" onsubmit="return validasi()">
+                            <form method="post" action="ceklogin.php" id="myForm">
                                 <div class="fields">
                                     <div class="field half">
-                                        <label for="name">Username</label>
-                                        <input type="text" name="username" id="username" />
+                                        <label for="name">NIM</label>
+                                        <input type="text" name="nim" id="nim" />
                                     </div>
                                     <div class="field half">
                                         <label for="password">Password</label>
@@ -34,7 +34,7 @@
                                     </div>
                                 </div>
                                 <ul class="actions">
-                                    <li><input type="submit" value="Masuk" class="primary" /></li>
+                                    <li><button type="submit" class="primary">Masuk</button></li>
                                     <li><input type="reset" value="Reset" /></li>
                                 </ul>
                             </form>
@@ -43,9 +43,8 @@
                             <section>
                                 <div class="contact-method">
                                     <h2>Belum punya Akun ?</h2>
-                                    <p>Daftar Sekarang </p>
-                                    <button type="button" onclick="window.location.href='index.html'">Daftar</button><br><br>
-                                    <button type="button" onclick="window.location.href='beranda.html'">Masuk Sementara</button>
+                                        <button type="button" onclick="window.location.href='index.html'">Daftar</button><br><br>
+                                    <button type="button" onclick="window.location.href='beranda.php'">Masuk Sementara</button>
                                 </div>
                             </section>
                         </section>
@@ -78,22 +77,4 @@
         <script src="assets/js/main.js"></script>
 
 </body>
- <!-- Scripts Login -->
- <script type="text/javascript">
-    function validasi(){
-      var username = document.forms["myForm"]["username"].value;
-      var password = document.forms["myForm"]["password"].value;
-      if( username == "admin" && password == "admin"){
-        return true;
-      }
-      else if(username =="" || password ==""){
-        alert("Masukan username dan password Anda");
-        return false;
-      }
-      else{
-        alert("Username atau password yang Anda masukan SALAH");
-        return false;
-      }
-    }
-  </script>
 </html>

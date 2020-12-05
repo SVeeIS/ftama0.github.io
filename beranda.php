@@ -35,8 +35,15 @@
 				<li><a href="status_voting.html">Status Pemilihan</a></li>
 			</ul>
 			<ul class="actions stacked">
-				<li><a href="detail_user.html" class="button primary fit">Detail Akun</a></li>
-				<li><a href="login.html" class="button fit">Keluar</a></li>
+				<?php
+				require_once("ceklogin.php");
+				if(isset($_SESSION['login_user'])){ ?>
+					<li><a href="detail_user.html" class="button primary fit">Detail Akun</a></li>
+					<li><a href="logout.php" class="button fit">Keluar</a></li>
+				<?php }
+				else{ ?>
+					<li><a href="login.html" class="button fit">Masuk</a></li>
+				<?php }?>
 			</ul>
 		</nav>
 		<!-- landing
