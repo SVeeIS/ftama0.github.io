@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2020 at 12:04 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.4
+-- Generation Time: Dec 05, 2020 at 07:46 PM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -44,10 +44,10 @@ CREATE TABLE `biodata_calon` (
 --
 
 INSERT INTO `biodata_calon` (`nim_calon`, `nama_calon`, `angkatan`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `foto`, `instagram`) VALUES
-('181081711001122', 'M. Basri', 2018, '', '2000-01-02', 'Laki - Laki', 'bio2.jpg', ''),
-('18108171100999', 'Noval Aprianda', 2018, 'Banjarmasin', '1999-03-02', 'Laki - Laki', 'bio1.jpg', 'noval_sejuta_jaringan'),
-('1810817210083', 'M. Azmi', 2018, '', '0000-00-00', 'Laki - Laki', 'bio4.jpg', ''),
-('1810817710001', 'Christanto P. Burongan', 2018, 'Philippines', '2000-02-02', 'Laki - Laki', 'bio3.jpg', 'crist');
+('1810817110017', 'Noval Aprianda', 2018, 'Banjarmasin', '1999-12-31', 'Laki - Laki', 'bio1.jpg', '@apriandnauf'),
+('1810817210012', 'M. Basri', 2018, 'Palangkaraya', '2000-01-02', 'Laki - Laki', 'bio2.jpg', '@basrimhmmd27'),
+('1810817310003', 'M. Azmi Haidar', 2018, 'Kandangan', '2000-03-09', 'Laki - Laki', 'bio4.jpg', '@azmihaidar_'),
+('1810817710001', 'Christanto P. Burongan', 2018, 'Philippines', '2000-02-02', 'Laki - Laki', 'bio3.jpg', '@chrisantoburongan');
 
 -- --------------------------------------------------------
 
@@ -67,7 +67,7 @@ CREATE TABLE `calon` (
 --
 
 INSERT INTO `calon` (`no_urut`, `nim_calon_ketua`, `nim_calon_wakil`, `foto_pasangan_calon`) VALUES
-(1, '18108171100999', '181081711001122', 'paslon1.jpg'),
+(1, '1810817110017', '1810817210012', 'paslon1.jpg'),
 (2, '1810817710001', '1810817710001', 'paslon2.jpg');
 
 -- --------------------------------------------------------
@@ -87,8 +87,8 @@ CREATE TABLE `misi` (
 --
 
 INSERT INTO `misi` (`id_misi`, `no_urut`, `isi_misi`) VALUES
-(1, 1, 'Membentuk study english club'),
-(2, 1, 'A16 full AC');
+(1, 1, '1. Memperkenalkan   Himpunan   Mahasiswa   Teknologi   Informasi Kepada Pihak Internal Dan Eksternal Universitas Lambung Mangkurat.\r\n2. Memaksimalkan   Dan   Menjalankan   Program   Kerja   Himpunan Mahasiswa Teknologi Informasi.\r\n3. Mengembangkan Potensi Mahasiswa Jurusan Teknologi Informasi.\r\n4. Menjalin Hubungan Baik Dan Atau Kerja Sama Dengan Pihak Internal Dan Eksternal Universitas Lambung Mangkurat.'),
+(2, 2, '1. Menjalin hubungan yang baik antar civitas akademika Teknologi Informasin FT ULM.\r\n2. Meningkatkan kualitas SDM Teknologi Informasin FT ULM demi terwujudnya SDM Teknologi Informasin FT ULM yang unggul.\r\n3. Menciptakan HMTI sebagai wadah untuk menampung dan menyalurkan aspirasi mahasiswa Teknologi Informasin FT ULM.\r\n4. Sebagai sarana untuk pemberdayaan potensi mahasiswa sekaligus sebagai pembinaan dan pengembangan aktif dalam diri mahasiswa.');
 
 -- --------------------------------------------------------
 
@@ -112,8 +112,17 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`nim_user`, `nama_user`, `angkatan`, `password`, `foto_user`, `foto_ktm`, `status_registrasi`, `status_vote`) VALUES
+('1810817110005', 'Ryan Ramel', 2018, 'ryan', 'pic03.jpg', 'pic06.jpg', 'Menunggu Verifikasi', 'Belum Memilih'),
+('1810817110015', 'Taufik Nurhidayat', 2018, 'taufik', 'pic06.jpg', 'pic06.jpg', 'Menunggu Verifikasi', 'Belum Memilih'),
 ('1810817110018', 'Ferry Pratama', 2018, 'ferry', 'pic03.jpg', 'pic06.jpg', 'Menunggu Verifikasi', 'Belum Memilih'),
-('1810817120003', 'Silvia Handayani', 2018, 'silvia', 'pic06.jpg', 'pic03.jpg', 'Menunggu Verifikasi', 'Belum Memilih');
+('1810817120003', 'Silvia Handayani', 2018, 'silvia', 'pic06.jpg', 'pic03.jpg', 'Menunggu Verifikasi', 'Belum Memilih'),
+('1810817120006', 'Siti Rohmah', 2018, 'amah', 'pic06.jpg', 'pic06.jpg', 'Menunggu Verifikasi', 'Belum Memilih'),
+('1810817120011', 'Ananda', 2018, 'nanda', 'pic06.jpg', 'pic03.jpg', 'Menunggu Verifikasi', 'Belum Memilih'),
+('1810817120014', 'Noviani', 2018, 'novi', 'pic06.jpg', 'pic03.jpg', 'Menunggu Verifikasi', 'Belum Memilih'),
+('1810817210010', 'Mahrudin', 2018, 'udin', 'pic06.jpg', 'pic06.jpg', 'Menunggu Verifikasi', 'Belum Memilih'),
+('1810817210013', 'Gusti Aditya A. F.', 2018, 'gusti', 'pic06.jpg', 'pic06.jpg', 'Menunggu Verifikasi', 'Belum Memilih'),
+('1810817220015', 'Faridah', 2018, 'faridah', 'pic06.jpg', 'pic06.jpg', 'Menunggu Verifikasi', 'Belum Memilih'),
+('1810817220017', 'Erika Maulidiya', 2018, 'erika', 'pic06.jpg', 'pic06.jpg', 'Menunggu Verifikasi', 'Belum Memilih');
 
 -- --------------------------------------------------------
 
@@ -132,7 +141,8 @@ CREATE TABLE `visi` (
 --
 
 INSERT INTO `visi` (`id_visi`, `no_urut`, `isi_visi`) VALUES
-(1, 1, 'Menjadikan PSTI sebagai wadah apresiasi');
+(1, 1, 'Terwujudnya Himpunan Mahasiswa Teknologi Informasi Sebagai Wadah Aspirasi Dan Pelayanan Demi Mewujudkan Mahasiswa Jurusan Teknologi Informasi Yang Inovatif Dan Berkompeten Di Bidangnya Agar Mampu Bersaing Dalam Perkembangan Teknologi.'),
+(2, 2, 'Menjadikan Himpunan Mahasiswa Jurusan Teknologi Informasi Fakultas Teknik Universitas Lambung Mangkurat sebagai wadah mahasiswa jurusan Teknologi Informasi dan sebagai dasar moral serta intelektual yang berintegritas, aspiratif dan bermartabat dalam menunjang proses akademis dan non akademis.');
 
 -- --------------------------------------------------------
 
@@ -213,7 +223,7 @@ ALTER TABLE `misi`
 -- AUTO_INCREMENT for table `visi`
 --
 ALTER TABLE `visi`
-  MODIFY `id_visi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_visi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `vote`
@@ -229,8 +239,8 @@ ALTER TABLE `vote`
 -- Constraints for table `calon`
 --
 ALTER TABLE `calon`
-  ADD CONSTRAINT `calon_ibfk_1` FOREIGN KEY (`nim_calon_ketua`) REFERENCES `biodata_calon` (`nim_calon`),
-  ADD CONSTRAINT `calon_ibfk_2` FOREIGN KEY (`nim_calon_wakil`) REFERENCES `biodata_calon` (`nim_calon`);
+  ADD CONSTRAINT `calon_ibfk_1` FOREIGN KEY (`nim_calon_ketua`) REFERENCES `biodata_calon` (`nim_calon`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `calon_ibfk_2` FOREIGN KEY (`nim_calon_wakil`) REFERENCES `biodata_calon` (`nim_calon`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `misi`
