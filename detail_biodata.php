@@ -1,3 +1,15 @@
+<?php
+require_once("koneksi.php");
+$nim = @($_GET['nim']);
+$ambildata=$pdo_conn->prepare("SELECT * FROM biodata_calon WHERE nim_calon=".$nim);
+$ambildata->execute();
+$biodata = $ambildata->fetchAll();
+
+$ambildata2=$pdo_conn->prepare("SELECT * FROM calon WHERE nim_calon_ketua=".$nim."||nim_calon_wakil=".$nim);
+$ambildata2->execute();
+$urutan = $ambildata2->fetchAll();
+?>
+
 <!DOCTYPE HTML>
 <html>
 
@@ -18,7 +30,7 @@
 
 		<!-- Header -->
 		<header id="header" class="alt">
-			<a href="beranda.html" class="logo"><strong>Pemilu</strong> <span>HMTI 2021</span></a>
+			<a href="beranda.php" class="logo"><strong>Pemilu</strong> <span>HMTI 2021</span></a>
 			<nav>
 				<a href="#menu">Menu</a>
 			</nav>
@@ -27,16 +39,23 @@
 		<!-- Menu -->
 		<nav id="menu">
 			<ul class="links">
-				<li><a href="beranda.html">Beranda</a></li>
-				<li><a href="biodata.html">Biodata</a></li>
-				<li><a href="visimisi.html">Visi & Misi</a></li>
-				<li><a href="voting.html">Timeline</a></li>
-				<li><a href="timeline.html">Voting</a></li>
-				<li><a href="status_voting.html">Status Pemilihan</a></li>
+				<li><a href="beranda.php">Beranda</a></li>
+				<li><a href="biodata.php">Biodata</a></li>
+				<li><a href="visimisi.php">Visi & Misi</a></li>
+				<li><a href="voting.php">Timeline</a></li>
+				<li><a href="timeline.php">Voting</a></li>
+				<li><a href="status_voting.php">Status Pemilihan</a></li>
 			</ul>
 			<ul class="actions stacked">
-				<li><a href="detail_user.html" class="button primary fit">Detail Akun</a></li>
-				<li><a href="login.html" class="button fit">Keluar</a></li>
+				<?php
+				require_once("ceklogin.php");
+				if(isset($_SESSION['login_user'])){ ?>
+					<li><a href="detail_user.html" class="button primary fit">Detail Akun</a></li>
+					<li><a href="logout.php" class="button fit">Keluar</a></li>
+				<?php }
+				else{ ?>
+					<li><a href="login.html" class="button fit">Masuk</a></li>
+				<?php }?>
 			</ul>
 		</nav>
 
@@ -63,49 +82,59 @@
 			<section id="one">
 				<div class="inner">
 					<header class="major">
-						<h2>Detail Biodata Calon Kahim & Wakahim HMTI 2021 - No.01</h2>
+						<h2>Detail Biodata Calon <?php
+							if($nim == $urutan[0]["nim_calon_ketua"])
+								echo "Ketua";
+							else
+								echo "Wakil Ketua";
+						?>
+						HMTI 2021 - No.0<?php echo $urutan[0]["no_urut"]; ?></h2>
 					</header>
 				</div>
 			</section>
 
 			<!-- Two -->
 			<section id="two" class="spotlights">
+
+			<?php if(!empty($biodata)) { ?>
 				<section>
-					<a href="generic.html" class="image">
-						<img src="images/bio1.jpg" alt="" data-position="center center" />
+					<a href="images/<?php echo $biodata[0]["foto"]; ?>" class="image">
+						<img src="images/<?php echo $biodata[0]["foto"]; ?>" alt="" data-position="center center" />
 					</a>
 					<div class="content">
 						<div class="inner">
 							<header class="major">
 								<div class="nama_calon">
-									<h3>Noval Aprianda</h3>
+									<h3><?php echo $biodata[0]["nama_calon"]; ?></h3>
 								</div>
 							</header>
 							<div class="nim_calon">
-								<p><b>NIM</b> : 18108171100999</p>
+								<p><b>NIM</b> : <?php echo $biodata[0]["nim_calon"]; ?></p>
 							</div>
 							<div class="angkatan">
-								<p><b>Angkatan</b> : 2018</p>
+								<p><b>Angkatan</b> : <?php echo $biodata[0]["angkatan"]; ?></p>
 							</div>
 							<div class="tempat_lahir">
-								<p><b>Tempat lahir</b> : Banjarmasin</p>
+								<p><b>Tempat lahir</b> : <?php echo $biodata[0]["tempat_lahir"]; ?></p>
 							</div>
 							<div class="tanggal_lahir">
-								<p><b>Tanggal lahir</b> : 30 Februari 1999</p>
+								<p><b>Tanggal lahir</b> : <?php echo $biodata[0]["tanggal_lahir"]; ?></p>
 							</div>
 							<div class="jenis_kelamin">
-								<p><b>Jenis Kelamin</b> : Laki-laki</p>
+								<p><b>Jenis Kelamin</b> : <?php echo $biodata[0]["jenis_kelamin"]; ?></p>
 							</div>
 							<div class="instagram">
 								<a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span>
-									noval_sejuta_jaringan</a>
+								<?php echo $biodata[0]["instagram"]; ?></a>
 							</div><br>
 						</div>
 						<ul class="actions">
-							<li><a href="biodata.html" class="button">Kembali</a></li>
+							<li><a href="biodata.php" class="button">Kembali</a></li>
 						</ul>
 					</div>
 				</section>
+
+				<?php } ?>
 		</div>
 
 		<!-- Footer -->

@@ -27,8 +27,8 @@
 		<!-- Menu -->
 		<nav id="menu">
 			<ul class="links">
-				<li><a href="beranda.html">Beranda</a></li>
-				<li><a href="biodata.html">Biodata</a></li>
+				<li><a href="beranda.php">Beranda</a></li>
+				<li><a href="biodata.php">Biodata</a></li>
 				<li><a href="visimisi.html">Visi & Misi</a></li>
 				<li><a href="voting.html">Timeline</a></li>
 				<li><a href="timeline.html">Voting</a></li>

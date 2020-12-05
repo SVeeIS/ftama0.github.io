@@ -1,3 +1,17 @@
+<?php
+require_once("koneksi.php");
+
+$ambildata = $pdo_conn->prepare("SELECT * FROM calon, biodata_calon WHERE  calon.nim_calon_ketua=biodata_calon.nim_calon ORDER BY no_urut ASC");
+$ambildata->execute();
+$ketua = $ambildata->fetchAll();
+$jumlah = count($ketua);
+
+$ambildata2 = $pdo_conn->prepare("SELECT * FROM calon, biodata_calon WHERE  calon.nim_calon_wakil=biodata_calon.nim_calon ORDER BY no_urut ASC");
+$ambildata2->execute();
+$wakil = $ambildata2->fetchAll();
+
+?>
+
 <!DOCTYPE HTML>
 <html>
 
@@ -27,16 +41,23 @@
 		<!-- Menu -->
 		<nav id="menu">
 			<ul class="links">
-				<li><a href="beranda.html">Beranda</a></li>
-				<li><a href="biodata.html">Biodata</a></li>
+				<li><a href="beranda.php">Beranda</a></li>
+				<li><a href="biodata.php">Biodata</a></li>
 				<li><a href="visimisi.html">Visi & Misi</a></li>
 				<li><a href="voting.html">Timeline</a></li>
 				<li><a href="timeline.html">Voting</a></li>
 				<li><a href="status_voting.html">Status Pemilihan</a></li>
 			</ul>
 			<ul class="actions stacked">
-				<li><a href="detail_user.html" class="button primary fit">Detail Akun</a></li>
-				<li><a href="login.html" class="button fit">Keluar</a></li>
+				<?php
+				require_once("ceklogin.php");
+				if(isset($_SESSION['login_user'])){ ?>
+					<li><a href="detail_user.html" class="button primary fit">Detail Akun</a></li>
+					<li><a href="logout.php" class="button fit">Keluar</a></li>
+				<?php }
+				else{ ?>
+					<li><a href="login.html" class="button fit">Masuk</a></li>
+				<?php }?>
 			</ul>
 		</nav>
 
@@ -65,79 +86,54 @@
 					<header class="major">
 						<h2>Biodata Pasangan Calon Kahim & Wakahim HMTI 2021</h2>
 					</header>
-					<p>Pada pemilu Kahim & Wakahim HMTI 2021 terdapat 2 pasangan calon</p>
+					<p>Pada pemilu Kahim & Wakahim HMTI 2021 terdapat <?php echo $jumlah;?> pasangan calon</p>
 				</div>
 			</section>
 
 			<!-- Two -->
 			<section id="two" class="spotlights">
+				<?php
+        		if(!empty($ketua) && !empty($wakil)) { 
+					for($i=0; $i<$jumlah; $i++) {
+        		?>
 				<section>
-					<a href="generic.html" class="image">
-						<img src="images/bio1.jpg" alt="" data-position="center center" />
+					<a href="images/<?php echo $ketua[$i]["foto"]; ?>" class="image">
+						<img src="images/<?php echo $ketua[$i]["foto"]; ?>" alt="" data-position="center center" />
 					</a>
 					<div class="content">
 						<div class="inner">
 							<header class="major">
-								<h3>Noval Aprianda</h3>
+								<h3><?php echo $ketua[$i]["nama_calon"]; ?></h3>
 							</header>
-							<p>No 01 - Calon Ketua HMTI 2021</p>
+							<p>No 0<?php echo $ketua[$i]["no_urut"]; ?> - Calon Ketua HMTI 2021</p>
 							<ul class="actions">
-								<li><a href="detail_biodata.html" class="button">Detail</a></li>
+								<li><a href="detail_biodata.php?nim=<?php echo $ketua[$i]['nim_calon']; ?>" class="button">Detail</a></li>
 							</ul>
 						</div>
 					</div>
 				</section>
 				<section>
-					<a href="generic.html" class="image">
-						<img src="images/bio2.jpg" alt="" data-position="top center" />
+					<a href="images/<?php echo $wakil[$i]["foto"]; ?>" class="image">
+						<img src="images/<?php echo $wakil[$i]["foto"]; ?>" alt="" data-position="top center" />
 					</a>
 					<div class="content">
 						<div class="inner">
 							<header class="major">
-								<h3>M. Basri</h3>
+								<h3><?php echo $wakil[$i]["nama_calon"]; ?></h3>
 							</header>
-							<p>No 01 - Calon Wakil Ketua HMTI 2021</p>
+							<p>No 0<?php echo $wakil[$i]["no_urut"]; ?> - Calon Wakil Ketua HMTI 2021</p>
 							<ul class="actions">
-								<li><a href="detail_biodata.html" class="button">Detail</a></li>
+								<li><a href='detail_biodata.php?nim=<?php echo $wakil[$i]['nim_calon']; ?>' class='button'>Detail</a></li>
 							</ul>
 						</div>
 					</div>
 				</section>
-
-				<section>
-					<a href="generic.html" class="image">
-						<img src="images/bio3.jpg" alt="" data-position="25% 25%" />
-					</a>
-					<div class="content">
-						<div class="inner">
-							<header class="major">
-								<h3>CHRISANTO PUAE BURONGAN</h3>
-							</header>
-							<p>No 02 - Calon Ketua HMTI 2021</p>
-							<ul class="actions">
-								<li><a href="detail_biodata.html" class="button">Detail</a></li>
-							</ul>
-						</div>
-					</div>
-				</section>
-				<section>
-					<a href="generic.html" class="image">
-						<img src="images/bio4.jpg" alt="" data-position="top center" />
-					</a>
-					<div class="content">
-						<div class="inner">
-							<header class="major">
-								<h3>M. Azmi</h3>
-							</header>
-							<p>No 02 - Calon Wakil Ketua HMTI 2021</p>
-							<ul class="actions">
-								<li><a href="detail_biodata.html" class="button">Detail</a></li>
-							</ul>
-						</div>
-					</div>
-				</section>
+				<?php
+					}
+					}
+				?>
 			</section>
-
+			
 		</div>
 
 		<!-- Footer -->
