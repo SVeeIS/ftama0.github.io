@@ -1,3 +1,22 @@
+<?php
+require_once("koneksi.php");
+// $ambildata=$pdo_conn->prepare("SELECT * FROM calon ORDER BY no_urut ASC");
+// $ambildata->execute();
+// $calon = $ambildata->fetchAll();
+$ambildata = $pdo_conn->prepare("SELECT * FROM calon, biodata_calon WHERE  calon.nim_calon_ketua=biodata_calon.nim_calon ORDER BY no_urut ASC");
+$ambildata->execute();
+$ketua = $ambildata->fetchAll();
+$jumlah = count($ketua);
+
+$ambildata2 = $pdo_conn->prepare("SELECT * FROM calon, biodata_calon WHERE  calon.nim_calon_wakil=biodata_calon.nim_calon ORDER BY no_urut ASC");
+$ambildata2->execute();
+$wakil = $ambildata2->fetchAll();
+
+$ambildata3 = $pdo_conn->prepare("SELECT * FROM vote ORDER BY no_urut ASC");
+$ambildata3->execute();
+$voting = $ambildata3->fetchAll();
+?>
+
 <!DOCTYPE HTML>
 <html>
 
@@ -27,16 +46,23 @@
         <!-- Menu -->
         <nav id="menu">
             <ul class="links">
-                <li><a href="beranda.html">Beranda</a></li>
-                <li><a href="biodata.html">Biodata</a></li>
-                <li><a href="visimisi.html">Visi & Misi</a></li>
-                <li><a href="voting.html">Timeline</a></li>
-                <li><a href="timeline.html">Voting</a></li>
-                <li><a href="status_voting.html">Status Pemilihan</a></li>
-            </ul>
-            <ul class="actions stacked">
-                <li><a href="detail_user.html" class="button primary fit">Detail Akun</a></li>
-                <li><a href="login.html" class="button fit">Keluar</a></li>
+                <li><a href="beranda.php">Beranda</a></li>
+				<li><a href="biodata.php">Biodata</a></li>
+				<li><a href="visimisi.php">Visi & Misi</a></li>
+				<li><a href="timeline.php">Timeline</a></li>
+				<li><a href="voting.php">Voting</a></li>
+				<li><a href="status_voting.php">Status Pemilihan</a></li>
+			</ul>
+			<ul class="actions stacked">
+				<?php
+				require_once("ceklogin.php");
+				if(isset($_SESSION['login_user'])){ ?>
+					<li><a href="detail_user.html" class="button primary fit">Detail Akun</a></li>
+					<li><a href="logout.php" class="button fit">Keluar</a></li>
+				<?php }
+				else{ ?>
+					<li><a href="login.html" class="button fit">Masuk</a></li>
+				<?php }?>
             </ul>
         </nav>
 
@@ -70,35 +96,29 @@
 
             <!-- Two -->
             <section id="two" class="spotlights">
+                <?php
+        		if(!empty($ketua) && !empty($wakil) && !empty($voting)) { 
+					for($i=0; $i<$jumlah; $i++) {
+        		?>
                 <section>
-                    <a href="generic.html" class="image">
-                        <img src="images/paslon1.jpg" alt="" data-position="center center" />
+                    <a href="images/<?php echo $ketua[$i]["foto_pasangan_calon"]; ?>" class="image">
+                        <img src="images/<?php echo $ketua[$i]["foto_pasangan_calon"]; ?>" alt="" data-position="center center" />
                     </a>
                     <div class="content">
                         <div class="inner">
                             <header class="major">
-                                <h3>Pasangan Calon No.1</h3>
+                                <h3>Pasangan Calon No.0<?php echo $ketua[$i]["no_urut"]; ?></h3>
                             </header>
-                            <p>Noval Aprianda & M.Basri</p>
+                            <p><?php echo $ketua[$i]["nama_calon"]." & ".$wakil[$i]["nama_calon"]; ?></p>
 
-                            <h8><b>Jumlah vote :</b> ??? </h8>
+                            <h8><b>Jumlah vote :</b> <?php echo $voting[$i]["jumlah_vote"]; ?> </h8>
                         </div>
                     </div>
                 </section>
-                <section>
-                    <a href="generic.html" class="image">
-                        <img src="images/paslon2.jpg" alt="" data-position="top center" />
-                    </a>
-                    <div class="content">
-                        <div class="inner">
-                            <header class="major">
-                                <h3>Pasangan Calon No.2</h3>
-                            </header>
-                            <p>Chrisanto Puae B & M.Azmi</p>
-                            <h8><b>Jumlah vote :</b> ??? </h8>
-                        </div>
-                    </div>
-                </section>
+                <?php
+					}
+				}
+				?>
             </section>
 
         </div>

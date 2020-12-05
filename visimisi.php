@@ -38,8 +38,8 @@ $calon = $ambildata->fetchAll();
 				<li><a href="beranda.php">Beranda</a></li>
 				<li><a href="biodata.php">Biodata</a></li>
 				<li><a href="visimisi.php">Visi & Misi</a></li>
-				<li><a href="voting.php">Timeline</a></li>
-				<li><a href="timeline.php">Voting</a></li>
+				<li><a href="timeline.php">Timeline</a></li>
+				<li><a href="voting.php">Voting</a></li>
 				<li><a href="status_voting.php">Status Pemilihan</a></li>
 			</ul>
 			<ul class="actions stacked">
@@ -52,7 +52,6 @@ $calon = $ambildata->fetchAll();
 				else{ ?>
 					<li><a href="login.html" class="button fit">Masuk</a></li>
 				<?php }?>
-
 			</ul>
 		</nav>
 
@@ -91,7 +90,7 @@ $calon = $ambildata->fetchAll();
 					foreach($calon as $row) {
         		?>
 				<section>
-					<a href="generic.html" class="image">
+					<a href="images/<?php echo $row["foto_pasangan_calon"]; ?>" class="image">
 						<img src="images/<?php echo $row["foto_pasangan_calon"]; ?>" alt="" data-position="center center" />
 					</a>
 					<div class="content">

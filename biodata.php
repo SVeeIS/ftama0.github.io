@@ -44,8 +44,8 @@ $wakil = $ambildata2->fetchAll();
 			<li><a href="beranda.php">Beranda</a></li>
 				<li><a href="biodata.php">Biodata</a></li>
 				<li><a href="visimisi.php">Visi & Misi</a></li>
-				<li><a href="voting.php">Timeline</a></li>
-				<li><a href="timeline.php">Voting</a></li>
+				<li><a href="timeline.php">Timeline</a></li>
+				<li><a href="voting.php">Voting</a></li>
 				<li><a href="status_voting.php">Status Pemilihan</a></li>
 			</ul>
 			<ul class="actions stacked">
