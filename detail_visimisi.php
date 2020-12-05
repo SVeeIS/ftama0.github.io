@@ -1,3 +1,19 @@
+<?php
+require_once("koneksi.php");
+$urutan = @($_GET['no_urut']);
+$ambildata=$pdo_conn->prepare("SELECT * FROM visi WHERE no_urut=".$urutan);
+$ambildata->execute();
+$visi = $ambildata->fetchAll();
+
+$ambildata2=$pdo_conn->prepare("SELECT * FROM misi WHERE no_urut=".$urutan);
+$ambildata2->execute();
+$misi = $ambildata2->fetchAll();
+$jumlah_misi = count($misi);
+
+$ambildata3=$pdo_conn->prepare("SELECT foto_pasangan_calon FROM calon WHERE no_urut=".$urutan);
+$ambildata3->execute();
+$foto = $ambildata3->fetchAll();
+?>
 <!DOCTYPE HTML>
 <html>
 
@@ -27,16 +43,23 @@
 		<!-- Menu -->
 		<nav id="menu">
 			<ul class="links">
-				<li><a href="beranda.html">Beranda</a></li>
-				<li><a href="biodata.html">Biodata</a></li>
-				<li><a href="visimisi.html">Visi & Misi</a></li>
-				<li><a href="voting.html">Timeline</a></li>
-				<li><a href="timeline.html">Voting</a></li>
-				<li><a href="status_voting.html">Status Pemilihan</a></li>
+			<li><a href="beranda.php">Beranda</a></li>
+				<li><a href="biodata.php">Biodata</a></li>
+				<li><a href="visimisi.php">Visi & Misi</a></li>
+				<li><a href="voting.php">Timeline</a></li>
+				<li><a href="timeline.php">Voting</a></li>
+				<li><a href="status_voting.php">Status Pemilihan</a></li>
 			</ul>
 			<ul class="actions stacked">
-				<li><a href="detail_user.html" class="button primary fit">Detail Akun</a></li>
-				<li><a href="login.html" class="button fit">Keluar</a></li>
+				<?php
+				require_once("ceklogin.php");
+				if(isset($_SESSION['login_user'])){ ?>
+					<li><a href="detail_user.html" class="button primary fit">Detail Akun</a></li>
+					<li><a href="logout.php" class="button fit">Keluar</a></li>
+				<?php }
+				else{ ?>
+					<li><a href="login.html" class="button fit">Masuk</a></li>
+				<?php }?>
 			</ul>
 		</nav>
 
@@ -72,26 +95,27 @@
 			<section id="two" class="spotlights">
 				<section>
 					<a href="generic.html" class="image">
-						<img src="images/paslon1.jpg" alt="" data-position="center center" />
+						<img src="images/<?php echo $foto[0]["foto_pasangan_calon"]; ?>" alt="" data-position="center center" />
 					</a>
 					<div class="content">
 						<div class="inner">
-							<header class="major">
-								<div class="isi_misi">
-									<h3>Misi</h3>
-								</div>
-							</header>
-							<p>Menjadikan PSTI sebagai wadah apresiasi</p>
 							<header class="major">
 								<div class="isi_visi">
 									<h3>Visi</h3>
 								</div>
 							</header>
-							<p>Membentuk study english club</p>
-							<p>A16 full AC</p>
+							<p><?php echo @($visi[0]["isi_visi"]); ?></p>
+							<header class="major">
+								<div class="isi_misi">
+									<h3>Misi</h3>
+								</div>
+							</header>
+							<?php for($i=0; $i < $jumlah_misi; $i++) {?>
+							<p><?php echo @($misi[$i]["isi_misi"]); ?></p>
+							<?php } ?>
 						</div>
 						<ul class="actions">
-							<li><a href="visimisi.html" class="button">Kembali</a></li>
+							<li><a href="visimisi.php" class="button">Kembali</a></li>
 						</ul>
 					</div>
 				</section>

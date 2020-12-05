@@ -29,10 +29,10 @@
 			<ul class="links">
 				<li><a href="beranda.php">Beranda</a></li>
 				<li><a href="biodata.php">Biodata</a></li>
-				<li><a href="visimisi.html">Visi & Misi</a></li>
-				<li><a href="voting.html">Timeline</a></li>
-				<li><a href="timeline.html">Voting</a></li>
-				<li><a href="status_voting.html">Status Pemilihan</a></li>
+				<li><a href="visimisi.php">Visi & Misi</a></li>
+				<li><a href="voting.php">Timeline</a></li>
+				<li><a href="timeline.php">Voting</a></li>
+				<li><a href="status_voting.php">Status Pemilihan</a></li>
 			</ul>
 			<ul class="actions stacked">
 				<?php

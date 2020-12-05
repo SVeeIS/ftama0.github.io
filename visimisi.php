@@ -1,3 +1,11 @@
+<?php
+require_once("koneksi.php");
+$ambildata=$pdo_conn->prepare("SELECT * FROM calon ORDER BY no_urut ASC");
+$ambildata->execute();
+$calon = $ambildata->fetchAll();
+
+?>
+
 <!DOCTYPE HTML>
 <html>
 
@@ -27,16 +35,24 @@
 		<!-- Menu -->
 		<nav id="menu">
 			<ul class="links">
-				<li><a href="beranda.html">Beranda</a></li>
-				<li><a href="biodata.html">Biodata</a></li>
-				<li><a href="visimisi.html">Visi & Misi</a></li>
-				<li><a href="voting.html">Timeline</a></li>
-				<li><a href="timeline.html">Voting</a></li>
-				<li><a href="status_voting.html">Status Pemilihan</a></li>
+				<li><a href="beranda.php">Beranda</a></li>
+				<li><a href="biodata.php">Biodata</a></li>
+				<li><a href="visimisi.php">Visi & Misi</a></li>
+				<li><a href="voting.php">Timeline</a></li>
+				<li><a href="timeline.php">Voting</a></li>
+				<li><a href="status_voting.php">Status Pemilihan</a></li>
 			</ul>
 			<ul class="actions stacked">
-				<li><a href="detail_user.html" class="button primary fit">Detail Akun</a></li>
-				<li><a href="login.html" class="button fit">Keluar</a></li>
+				<?php
+				require_once("ceklogin.php");
+				if(isset($_SESSION['login_user'])){ ?>
+					<li><a href="detail_user.html" class="button primary fit">Detail Akun</a></li>
+					<li><a href="logout.php" class="button fit">Keluar</a></li>
+				<?php }
+				else{ ?>
+					<li><a href="login.html" class="button fit">Masuk</a></li>
+				<?php }?>
+
 			</ul>
 		</nav>
 
@@ -70,38 +86,30 @@
 
 			<!-- Two -->
 			<section id="two" class="spotlights">
+				<?php
+        		if(!empty($calon)) { 
+					foreach($calon as $row) {
+        		?>
 				<section>
 					<a href="generic.html" class="image">
-						<img src="images/paslon1.jpg" alt="" data-position="center center" />
+						<img src="images/<?php echo $row["foto_pasangan_calon"]; ?>" alt="" data-position="center center" />
 					</a>
 					<div class="content">
 						<div class="inner">
 							<header class="major">
-								<h3>Pasangan Calon No.1</h3>
+								<h3>Pasangan Calon No.0<?php echo $row["no_urut"]; ?></h3>
 							</header>
-							<p>Visi & Misi Pasangan Calon No.1</p>
+							<p>Visi & Misi Pasangan Calon No.0<?php echo $row["no_urut"]; ?></p>
 							<ul class="actions">
-								<li><a href="detail_visimisi.html" class="button">Detail</a></li>
+								<li><a href='detail_visimisi.php?no_urut=<?php echo $row["no_urut"]; ?>' class='button'>Detail</a></li>
 							</ul>
 						</div>
 					</div>
 				</section>
-				<section>
-					<a href="generic.html" class="image">
-						<img src="images/paslon2.jpg" alt="" data-position="top center" />
-					</a>
-					<div class="content">
-						<div class="inner">
-							<header class="major">
-								<h3>Pasangan Calon No.2</h3>
-							</header>
-							<p>Visi & Misi Pasangan Calon No.2</p>
-							<ul class="actions">
-								<li><a href="detail_visimisi.html" class="button">Detail</a></li>
-							</ul>
-						</div>
-					</div>
-				</section>
+				<?php
+					}
+				}
+				?>
 			</section>
 
 		</div>
