@@ -1,5 +1,5 @@
 <?php
-$port=$_SERVER['54042'];
+$port=54042;
 $server="localhost:$port";
 $user="azure";
 $pass="6#vWHD_$";
