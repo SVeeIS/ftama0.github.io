@@ -3,7 +3,7 @@ $port=54042;
 $server="localhost:$port";
 $user="azure";
 $pass="6#vWHD_$";
-$db="localdb";
+$db="pemilu";
 
 $pdo_conn = mysqli_connect("$server","$user","$pass","$db");
 
