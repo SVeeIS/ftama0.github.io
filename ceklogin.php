@@ -18,7 +18,7 @@ if($_POST['nim'] == 'admin' && $_POST['password'] == 'admin')
 else if(empty($row['nim_user']))
 {
     echo '<script type="text/javascript">'; 
-    echo 'alert("NIM atau password yang Anda masukan SALAH");'; 
+    echo 'alert("NIM atau Password yang Anda Masukan SALAH");'; 
     echo 'window.location.href = "login.php";';
     echo '</script>';
 }

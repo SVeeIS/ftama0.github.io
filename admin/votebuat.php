@@ -2,7 +2,7 @@
 	<link rel="stylesheet" href="css/printing.css">
 		
 <?php
-session_start();
+include('../ceklogin.php');
 error_reporting(0);
 include('includes/config.php');
 	$Kode = $_GET['code'];

@@ -1,9 +1,9 @@
 <?php
-session_start();
+include('../ceklogin.php');
 error_reporting(0);
 include('includes/config.php');
 include('includes/library.php');
-if(strlen($_SESSION['alogin'])==0){	
+if(strlen($_SESSION['login_admin'])==0){	
 	header('location:index.php');
 } else{ ?>
 <!doctype html>
