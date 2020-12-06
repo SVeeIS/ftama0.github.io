@@ -12,8 +12,4 @@ if ($pdo_conn -> connect_errno) {
   echo "Failed to connect to MySQL: " . $pdo_conn -> connect_error;
   exit();
 }
-
-if (! $koneksidb) {
-  echo "Failed Connection !";
-}
 ?>
