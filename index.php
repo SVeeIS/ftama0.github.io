@@ -70,35 +70,12 @@
         </section>
 
         <!-- Footer -->
-        <footer id="footer">
-            <div class="inner">
-                <ul class="icons">
-                    <li><a href="https://www.youtube.com/channel/UCBWvors8mO16aa-GCyscrKw"
-                            class="icon brands alt fa-youtube"><span class="label">Twitter</span></a></li>
-                    <li><a href="https://www.facebook.com/HMTIFTunlam/" class="icon brands alt fa-facebook-f"><span
-                                class="label">Facebook</span></a></li>
-                    <li><a href="https://www.instagram.com/hmti_ftulm/" class="icon brands alt fa-instagram"><span
-                                class="label">Instagram</span></a></li>
-                    <li><a href="https://www.hmti.ft.ulm.ac.id/" class="icon brands alt fa-wordpress"><span
-                                class="label">Website</span></a></li>
-                </ul>
-                <ul class="copyright">
-                    <li>&copy; PEMILU HMTI 2021</li>
-                    <li>Design: <a href="https://www.hmti.ft.ulm.ac.id/">HMTI</a></li>
-                </ul>
-            </div>
-        </footer>
+        <?php include('admin/includes/footer.html');?>
 
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <?php include('admin/includes/scripts.html');?>
 
 </body>
 
