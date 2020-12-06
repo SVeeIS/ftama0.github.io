@@ -44,7 +44,6 @@
                                 <div class="contact-method">
                                     <h2>Belum punya Akun ?</h2>
                                         <button type="button" onclick="window.location.href='index.php'">Daftar</button><br><br>
-                                    <button type="button" onclick="window.location.href='beranda.php'">Masuk Sementara</button>
                                 </div>
                             </section>
                         </section>
