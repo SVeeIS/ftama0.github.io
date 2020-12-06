@@ -1,9 +1,9 @@
 <?php
 $port=54042;
 $server="localhost:$port";
-$user="root";
+$user="azure";
 $pass="6#vWHD_$";
-$db="pemilu";
+$db="localdb";
 
 $pdo_conn = mysqli_connect("$server","$user","$pass","$db");
 
