@@ -29,27 +29,27 @@
                         <div class="fields">
                             <div class="field half">
                                 <label for="name">Nama</label>
-                                <input type="text" name="nama" id="name" />
+                                <input type="text" name="nama" id="name" required/>
                             </div>
                             <div class="field half">
                                 <label for="NIM">NIM</label>
-                                <input type="text" name="nim" id="nim" />
+                                <input type="text" name="nim" id="nim" required/>
                             </div>
                             <div class="field half">
                                 <label for="password">Password</label>
-                                <input type="password" name="password" id="password" />
+                                <input type="password" name="password" id="password" required/>
                             </div>
                             <div class="field half">
                                 <label for="angkatan">Angkatan</label>
-                                <input type="text" name="angkatan" id="angkatan" />
+                                <input type="text" name="angkatan" id="angkatan" required/>
                             </div>
                             <div class="field half">
                                 <label for="Foto">Foto selfie + KTM</label>
-                                <input type="file" name="foto" id="foto" />
+                                <input type="file" name="foto" id="foto" required/>
                             </div>
                             <div class="field half">
                                 <label for="ktm">Scan KTM</label>
-                                <input type="file" name="ktm" id="ktm" />
+                                <input type="file" name="ktm" id="ktm" required/>
                             </div>
                         </div>
                         <ul class="actions">

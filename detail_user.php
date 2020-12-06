@@ -95,9 +95,6 @@ $biodata = $ambildata->fetchAll();
                             <div class="nim_user">
                                 <p><b>NIM</b> : <?php echo $biodata[0]["nim_user"]; ?></p>
                             </div>
-                            <div class="password_user">
-                                <p><b>Password</b> : <?php echo $biodata[0]["password"]; ?></p>
-                            </div>
                             <div class="angkatan_user">
                                 <p><b>Angkatan</b> : <?php echo $biodata[0]["angkatan"]; ?></p>
                             </div>
@@ -107,6 +104,12 @@ $biodata = $ambildata->fetchAll();
                             <div class="status vote">
                                 <p><b>Status Vote</b> : <?php echo $biodata[0]["status_vote"]; ?></p>
                             </div>
+                            <?php
+                            if($biodata[0]["status_registrasi"]=="Menunggu Verifikasi"){ ?>
+                                <ul class="actions">
+                                    <li><a href="ubahDataUser.php?nim=<?php echo $biodata[0]['nim_user']; ?>" class="button">Ubah Data</a></li>
+                                </ul>
+                            <?php }?>
                         </div>
                     </div>
                 </section>

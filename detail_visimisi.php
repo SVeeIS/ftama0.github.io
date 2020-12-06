@@ -110,8 +110,9 @@ $foto = $ambildata3->fetchAll();
 									<h3>Misi</h3>
 								</div>
 							</header>
-							<?php for($i=0; $i < $jumlah_misi; $i++) {?>
-							<p><?php echo @($misi[$i]["isi_misi"]); ?></p>
+							<?php for($i=0; $i < $jumlah_misi; $i++) {
+								$no = $i+1; ?>
+							<p><?php echo $no.". ".@($misi[$i]["isi_misi"]); ?></p>
 							<?php } ?>
 						</div>
 						<ul class="actions">
