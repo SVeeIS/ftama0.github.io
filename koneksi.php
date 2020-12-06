@@ -1,17 +1,8 @@
-<?php
-$port=54042;
-$server="localhost:$port";
-$user="azure";
-$pass="6#vWHD_$";
-$db="localdb";
-
-$pdo_conn = mysqli_connect("$server","$user","$pass","$db");
-
-// Check connection
-if ($pdo_conn -> connect_errno) {
-  echo "Failed to connect to MySQL: " . $pdo_conn -> connect_error;
-  exit();
-}
-
+<?php 
+try { 
+    $pdo_conn = new PDO('mysql:host=localhost:54042;dbname=localdb', 'azure', '6#vWHD_$',
+    array(PDO::ATTR_PERSISTENT => true)); 
+} 
+catch(PDOException $e) { echo $e->getMessage(); 
+} 
 ?>
-
