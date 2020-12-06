@@ -13,13 +13,5 @@ if ($pdo_conn -> connect_errno) {
   exit();
 }
 
-// Perform query
-if ($result = $pdo_conn) {
-  echo "Koneksi berhasil!";
-  // Free result set
-  $result -> free_result();
-}
-
-$pdo_conn -> close();
 ?>
 
