@@ -1,7 +1,7 @@
 <?php
 $port=54042;
 $server="localhost:$port";
-$user="azure";
+$user="root";
 $pass="6#vWHD_$";
 $db="pemilu";
 
