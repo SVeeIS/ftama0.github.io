@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2020 at 07:31 AM
+-- Generation Time: Dec 06, 2020 at 08:59 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -99,6 +99,28 @@ INSERT INTO `misi` (`id_misi`, `no_urut`, `isi_misi`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `timeline`
+--
+
+CREATE TABLE `timeline` (
+  `id_timeline` int(11) NOT NULL,
+  `tanggal_mulai` date NOT NULL,
+  `tanggal_akhir` date NOT NULL,
+  `kegiatan` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `timeline`
+--
+
+INSERT INTO `timeline` (`id_timeline`, `tanggal_mulai`, `tanggal_akhir`, `kegiatan`) VALUES
+(1, '2020-12-26', '2020-12-31', 'Pendaftaran Akun'),
+(2, '2021-01-01', '0000-00-00', 'Voting Pasangan Calon Kahim & Wakahim HMTI 2021'),
+(3, '2021-01-02', '0000-00-00', 'Pengumuman');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -127,6 +149,7 @@ INSERT INTO `user` (`nim_user`, `nama_user`, `angkatan`, `password`, `foto_user`
 ('1810817120014', 'Noviani', 2018, 'novi', 'pic06.jpg', 'pic03.jpg', 'Menunggu Verifikasi', 'Belum Memilih'),
 ('1810817210010', 'Mahrudin', 2018, 'udin', 'pic06.jpg', 'pic06.jpg', 'Menunggu Verifikasi', 'Belum Memilih'),
 ('1810817210013', 'Gusti Aditya A. F.', 2018, 'gusti', 'pic06.jpg', 'pic06.jpg', 'Menunggu Verifikasi', 'Belum Memilih'),
+('1810817220011', 'Siti Viona Indah Swari', 2018, 'viona', 'pic07.jpg', 'pic09.jpg', 'Menunggu Verifikasi', 'Belum Memilih'),
 ('1810817220015', 'Faridah', 2018, 'faridah', 'pic06.jpg', 'pic06.jpg', 'Menunggu Verifikasi', 'Belum Memilih'),
 ('1810817220017', 'Erika Maulidiya', 2018, 'erika', 'pic06.jpg', 'pic06.jpg', 'Menunggu Verifikasi', 'Belum Memilih');
 
@@ -196,6 +219,12 @@ ALTER TABLE `misi`
   ADD KEY `no_urut` (`no_urut`);
 
 --
+-- Indexes for table `timeline`
+--
+ALTER TABLE `timeline`
+  ADD PRIMARY KEY (`id_timeline`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -224,6 +253,12 @@ ALTER TABLE `vote`
 --
 ALTER TABLE `misi`
   MODIFY `id_misi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `timeline`
+--
+ALTER TABLE `timeline`
+  MODIFY `id_timeline` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `visi`
