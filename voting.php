@@ -1,3 +1,15 @@
+<?php
+require_once("koneksi.php");
+$ambildata = $pdo_conn->prepare("SELECT * FROM calon, biodata_calon WHERE  calon.nim_calon_ketua=biodata_calon.nim_calon ORDER BY no_urut ASC");
+$ambildata->execute();
+$ketua = $ambildata->fetchAll();
+$jumlah = count($ketua);
+
+$ambildata2 = $pdo_conn->prepare("SELECT * FROM calon, biodata_calon WHERE  calon.nim_calon_wakil=biodata_calon.nim_calon ORDER BY no_urut ASC");
+$ambildata2->execute();
+$wakil = $ambildata2->fetchAll();
+?>
+
 <!DOCTYPE HTML>
 <html>
 
@@ -38,7 +50,7 @@
 				<?php
 				require_once("ceklogin.php");
 				if(isset($_SESSION['login_user'])){ ?>
-					<li><a href="detail_user.html" class="button primary fit">Detail Akun</a></li>
+					<li><a href="detail_user.php" class="button primary fit">Detail Akun</a></li>
 					<li><a href="logout.php" class="button fit">Keluar</a></li>
 				<?php }
 				else{ ?>
@@ -77,38 +89,36 @@
 
 			<!-- Two -->
 			<section id="two" class="spotlights">
+				<?php
+        		if(!empty($ketua) && !empty($wakil)) { 
+					for($i=0; $i<$jumlah; $i++) {
+        		?>
 				<section>
-					<a href="generic.html" class="image">
-						<img src="images/paslon1.jpg" alt="" data-position="center center" />
+					<a href="images/<?php echo $ketua[$i]["foto_pasangan_calon"]; ?>" class="image">
+						<img src="images/<?php echo $ketua[$i]["foto_pasangan_calon"]; ?>" alt="" data-position="center center" />
 					</a>
 					<div class="content">
 						<div class="inner">
 							<header class="major">
-								<h3>Pasangan Calon No.1</h3>
+								<h3>Pasangan Calon No.0<?php echo $ketua[$i]["no_urut"]; ?></h3>
 							</header>
-							<p>Noval Aprianda & M.Basri</p>
+							<p><?php echo $ketua[$i]["nama_calon"]." & ".$wakil[$i]["nama_calon"]; ?></p>
 							<ul class="actions">
-								<li><a href="#" class="button">Vote</a></li>
+								<?php
+								if(isset($_SESSION['login_user'])){ ?>
+									<li><a href='prosesvoting.php?no_urut=<?php echo $ketua[$i]['no_urut']; ?>' class='button' onclick="return confirm('Anda Yakin Ingin Memilih Pasangan Ini?')">Vote</a></li>
+								<?php }
+								else{ ?>
+									<li><a href="login.html" class="button fit">Masuk Untuk Vote</a></li>
+								<?php }?>
 							</ul>
 						</div>
 					</div>
 				</section>
-				<section>
-					<a href="generic.html" class="image">
-						<img src="images/paslon2.jpg" alt="" data-position="top center" />
-					</a>
-					<div class="content">
-						<div class="inner">
-							<header class="major">
-								<h3>Pasangan Calon No.2</h3>
-							</header>
-							<p>Chrisanto Puae B & M.Azmi</p>
-							<ul class="actions">
-								<li><a href="#" class="button">Vote</a></li>
-							</ul>
-						</div>
-					</div>
-				</section>
+				<?php
+					}
+				}
+				?>
 			</section>
 
 		</div>

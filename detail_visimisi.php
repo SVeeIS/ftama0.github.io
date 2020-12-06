@@ -54,7 +54,7 @@ $foto = $ambildata3->fetchAll();
 				<?php
 				require_once("ceklogin.php");
 				if(isset($_SESSION['login_user'])){ ?>
-					<li><a href="detail_user.html" class="button primary fit">Detail Akun</a></li>
+					<li><a href="detail_user.php" class="button primary fit">Detail Akun</a></li>
 					<li><a href="logout.php" class="button fit">Keluar</a></li>
 				<?php }
 				else{ ?>

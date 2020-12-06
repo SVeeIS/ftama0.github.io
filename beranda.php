@@ -38,7 +38,7 @@
 				<?php
 				require_once("ceklogin.php");
 				if(isset($_SESSION['login_user'])){ ?>
-					<li><a href="detail_user.html" class="button primary fit">Detail Akun</a></li>
+					<li><a href="detail_user.php" class="button primary fit">Detail Akun</a></li>
 					<li><a href="logout.php" class="button fit">Keluar</a></li>
 				<?php }
 				else{ ?>
@@ -78,7 +78,7 @@ elements -->
 						<img src="images/pic01.jpg" alt="" />
 					</span>
 					<header class="major">
-						<h3><a href="biodata.html" class="link">Biodata</a></h3>
+						<h3><a href="biodata.php" class="link">Biodata</a></h3>
 						<p>Calon Kahim & Wakahim HMTI 2021</p>
 					</header>
 				</article>
@@ -87,7 +87,7 @@ elements -->
 						<img src="images/pic02.jpg" alt="" />
 					</span>
 					<header class="major">
-						<h3><a href="visimisi.html" class="link">Visi & Misi</a></h3>
+						<h3><a href="visimisi.php" class="link">Visi & Misi</a></h3>
 						<p>Calon Kahim & Wakahim HMTI 2021</p>
 					</header>
 				</article>
@@ -96,7 +96,7 @@ elements -->
 						<img src="images/pic03.jpg" alt="" />
 					</span>
 					<header class="major">
-						<h3><a href="voting.html" class="link">Voting</a></h3>
+						<h3><a href="voting.php" class="link">Voting</a></h3>
 						<p>Calon Kahim & Wakahim HMTI 2021</p>
 					</header>
 				</article>
@@ -105,7 +105,7 @@ elements -->
 						<img src="images/pic04.jpg" alt="" />
 					</span>
 					<header class="major">
-						<h3><a href="timeline.html" class="link">Timeline</a></h3>
+						<h3><a href="timeline.php" class="link">Timeline</a></h3>
 						<p>Pemilu Kahim & Wakahim HMTI 2021</p>
 					</header>
 				</article>
@@ -123,7 +123,7 @@ elements -->
 						<img src="images/pic06.jpg" alt="" />
 					</span>
 					<header class="major">
-						<h3><a href="status_voting.html" class="link">Status Pemilihan</a></h3>
+						<h3><a href="status_voting.php" class="link">Status Pemilihan</a></h3>
 						<p>Calon Kahim & Wakahim HMTI 2021</p>
 					</header>
 				</article>
@@ -139,7 +139,7 @@ elements -->
 						ketua Himpunan Teknologi Informasi dengan baik dan amanah. Satu Sistem Sejuta Jaringan. Hidup
 						Mahasiswa!</p>
 					<ul class="actions">
-						<li><a href="voting.html" class="button next">Voting</a></li>
+						<li><a href="voting.php" class="button next">Voting</a></li>
 					</ul>
 				</div>
 			</section>

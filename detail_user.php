@@ -1,3 +1,12 @@
+<?php
+require_once("koneksi.php");
+require_once("ceklogin.php");
+$nim = @($_SESSION['login_user']);
+$ambildata=$pdo_conn->prepare("SELECT * FROM user WHERE nim_user=".$nim);
+$ambildata->execute();
+$biodata = $ambildata->fetchAll();
+?>
+
 <!DOCTYPE HTML>
 <html>
 
@@ -5,10 +14,11 @@
     <title>Detail Akun</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="icon" href="Logo/HMTI2020.png">
-    <noscript>
-        <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="icon" href="Logo/HMTI2020.png">
+        <noscript>
+            <link rel="stylesheet" href="assets/css/noscript.css" />
+        </noscript>
 </head>
 
 <body class="is-preload">
@@ -27,16 +37,16 @@
         <!-- Menu -->
         <nav id="menu">
             <ul class="links">
-                <li><a href="beranda.html">Beranda</a></li>
-                <li><a href="biodata.html">Biodata</a></li>
-                <li><a href="visimisi.html">Visi & Misi</a></li>
-                <li><a href="voting.html">Timeline</a></li>
-                <li><a href="timeline.html">Voting</a></li>
-                <li><a href="status_voting.html">Status Pemilihan</a></li>
+				<li><a href="beranda.php">Beranda</a></li>
+				<li><a href="biodata.php">Biodata</a></li>
+				<li><a href="visimisi.php">Visi & Misi</a></li>
+				<li><a href="timeline.php">Timeline</a></li>
+				<li><a href="voting.php">Voting</a></li>
+				<li><a href="status_voting.php">Status Pemilihan</a></li>
             </ul>
             <ul class="actions stacked">
-                <li><a href="detail_user.html" class="button primary fit">Detail Akun</a></li>
-                <li><a href="login.html" class="button fit">Keluar</a></li>
+                <li><a href="detail_user.php" class="button primary fit">Detail Akun</a></li>
+                <li><a href="logout.php" class="button fit">Keluar</a></li>
             </ul>
         </nav>
 
@@ -51,6 +61,7 @@
                     <h1>Detail Akun</h1>
                 </header>
                 <div class="content">
+                    <p>Pastikan Data Terisi dengan Benar dan Foto yang Anda Masukkan Benar dan Terlihat Jelas!</p>
                 </div>
             </div>
         </section>
@@ -70,28 +81,35 @@
             <!-- Two -->
             <section id="two" class="spotlights">
                 <section>
-                    <a href="generic.html" class="image">
-                        <img src="images/bio1.jpg" alt="" data-position="center center" />
+                    <a href="#" class="image">
+                        <img src="images/<?php echo $biodata[0]["foto_user"]; ?>" alt="" data-position="center center" />
+                        <img src="images/<?php echo $biodata[0]["foto_ktm"]; ?>" alt="" data-position="center center" />
                     </a>
                     <div class="content">
                         <div class="inner">
                             <header class="major">
                                 <div class="nama_user">
-                                    <h3>Noval Aprianda</h3>
+                                    <h3><?php echo $biodata[0]["nama_user"]; ?></h3>
                                 </div>
                             </header>
                             <div class="nim_user">
-                                <p><b>NIM</b> : 18108171100999</p>
+                                <p><b>NIM</b> : <?php echo $biodata[0]["nim_user"]; ?></p>
                             </div>
                             <div class="password_user">
-                                <p><b>Password</b> : xyz123</p>
+                                <p><b>Password</b> : <?php echo $biodata[0]["password"]; ?></p>
                             </div>
                             <div class="angkatan_user">
-                                <p><b>Angkatan</b> : 2018</p>
+                                <p><b>Angkatan</b> : <?php echo $biodata[0]["angkatan"]; ?></p>
                             </div>
                             <div class="status vote">
-                                <p><b>Status Vote</b> : Telah Memilih</p>
+                                <p><b>Status Registrasi</b> : <?php echo $biodata[0]["status_registrasi"]; ?></p>
                             </div>
+                            <div class="status vote">
+                                <p><b>Status Vote</b> : <?php echo $biodata[0]["status_vote"]; ?></p>
+                            </div>
+                            <ul class="actions">
+								<li><a href="ubahDataUser.php?nim=<?php echo $biodata[0]['nim_user']; ?>" class="button">Ubah Data</a></li>
+							</ul>
                         </div>
                     </div>
                 </section>

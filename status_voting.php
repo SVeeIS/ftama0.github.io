@@ -1,8 +1,5 @@
 <?php
 require_once("koneksi.php");
-// $ambildata=$pdo_conn->prepare("SELECT * FROM calon ORDER BY no_urut ASC");
-// $ambildata->execute();
-// $calon = $ambildata->fetchAll();
 $ambildata = $pdo_conn->prepare("SELECT * FROM calon, biodata_calon WHERE  calon.nim_calon_ketua=biodata_calon.nim_calon ORDER BY no_urut ASC");
 $ambildata->execute();
 $ketua = $ambildata->fetchAll();
@@ -57,7 +54,7 @@ $voting = $ambildata3->fetchAll();
 				<?php
 				require_once("ceklogin.php");
 				if(isset($_SESSION['login_user'])){ ?>
-					<li><a href="detail_user.html" class="button primary fit">Detail Akun</a></li>
+					<li><a href="detail_user.php" class="button primary fit">Detail Akun</a></li>
 					<li><a href="logout.php" class="button fit">Keluar</a></li>
 				<?php }
 				else{ ?>
