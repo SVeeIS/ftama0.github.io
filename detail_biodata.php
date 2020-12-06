@@ -124,7 +124,7 @@ $urutan = $ambildata2->fetchAll();
 								<p><b>Jenis Kelamin</b> : <?php echo $biodata[0]["jenis_kelamin"]; ?></p>
 							</div>
 							<div class="instagram">
-								<a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span>
+								<a href="https://www.instagram.com/<?php echo $biodata[0]["instagram"]; ?>" target="_blank" class="icon brands alt fa-instagram"><span class="label">Instagram</span>
 								<?php echo $biodata[0]["instagram"]; ?></a>
 							</div><br>
 						</div>

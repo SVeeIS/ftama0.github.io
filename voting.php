@@ -8,6 +8,12 @@ $jumlah = count($ketua);
 $ambildata2 = $pdo_conn->prepare("SELECT * FROM calon, biodata_calon WHERE  calon.nim_calon_wakil=biodata_calon.nim_calon ORDER BY no_urut ASC");
 $ambildata2->execute();
 $wakil = $ambildata2->fetchAll();
+
+require_once("ceklogin.php");
+$nim = @($_SESSION['login_user']);
+$ambildata3=$pdo_conn->prepare("SELECT * from user WHERE nim_user=".$nim);
+$ambildata3->execute();
+$user = $ambildata3->fetchAll();
 ?>
 
 <!DOCTYPE HTML>
@@ -49,7 +55,7 @@ $wakil = $ambildata2->fetchAll();
 			<ul class="actions stacked">
 				<?php
 				require_once("ceklogin.php");
-				if(isset($_SESSION['login_user'])){ ?>
+				if(!empty($user)){ ?>
 					<li><a href="detail_user.php" class="button primary fit">Detail Akun</a></li>
 					<li><a href="logout.php" class="button fit">Keluar</a></li>
 				<?php }
@@ -105,10 +111,14 @@ $wakil = $ambildata2->fetchAll();
 							<p><?php echo $ketua[$i]["nama_calon"]." & ".$wakil[$i]["nama_calon"]; ?></p>
 							<ul class="actions">
 								<?php
-								if(isset($_SESSION['login_user'])){ ?>
-									<li><a href='prosesvoting.php?no_urut=<?php echo $ketua[$i]['no_urut']; ?>' class='button' onclick="return confirm('Anda Yakin Ingin Memilih Pasangan Ini?')">Vote</a></li>
+								if(!empty($user)){
+									if($user[0]["status_vote"]=="Belum Memilih"){ ?>
+										<li><a href='prosesvoting.php?no_urut=<?php echo $ketua[$i]['no_urut']; ?>?&nim=<?php echo $user[0]['nim_user']; ?>' class='button' onclick="return confirm('Anda Yakin Ingin Memilih Pasangan Ini?')">Vote</a></li>
 								<?php }
-								else{ ?>
+									else{ ?>
+										<li><a href="status_voting.php" class="button fit">Lihat Hasil Voting</a></li>
+								<?php }
+								}else{ ?>
 									<li><a href="login.html" class="button fit">Masuk Untuk Vote</a></li>
 								<?php }?>
 							</ul>
