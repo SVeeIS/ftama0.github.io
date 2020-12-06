@@ -19,7 +19,7 @@ else if(empty($row['nim_user']))
 {
     echo '<script type="text/javascript">'; 
     echo 'alert("NIM atau password yang Anda masukan SALAH");'; 
-    echo 'window.location.href = "login.html";';
+    echo 'window.location.href = "login.php";';
     echo '</script>';
 }
 else 

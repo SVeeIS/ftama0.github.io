@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2020 at 06:12 AM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.7
+-- Generation Time: Dec 06, 2020 at 07:31 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -120,7 +121,7 @@ INSERT INTO `user` (`nim_user`, `nama_user`, `angkatan`, `password`, `foto_user`
 ('1810817110005', 'Ryan Ramel', 2018, 'ryan', 'pic03.jpg', 'pic06.jpg', 'Menunggu Verifikasi', 'Belum Memilih'),
 ('1810817110015', 'Taufik Nurhidayat', 2018, 'taufik', 'pic06.jpg', 'pic06.jpg', 'Menunggu Verifikasi', 'Belum Memilih'),
 ('1810817110018', 'Ferry Pratama', 2018, 'ferry', 'pic03.jpg', 'pic06.jpg', 'Menunggu Verifikasi', 'Belum Memilih'),
-('1810817120003', 'Silvia Handayani', 2018, 'silvia', 'pic06.jpg', 'pic03.jpg', 'Menunggu Verifikasi', 'Belum Memilih'),
+('1810817120003', 'Silvia Handayani', 2018, 'silvia', 'pic04.jpg', 'banner.jpg', 'Menunggu Verifikasi', 'Belum Memilih'),
 ('1810817120006', 'Siti Rohmah', 2018, 'amah', 'pic06.jpg', 'pic06.jpg', 'Menunggu Verifikasi', 'Belum Memilih'),
 ('1810817120011', 'Ananda', 2018, 'nanda', 'pic06.jpg', 'pic03.jpg', 'Menunggu Verifikasi', 'Belum Memilih'),
 ('1810817120014', 'Noviani', 2018, 'novi', 'pic06.jpg', 'pic03.jpg', 'Menunggu Verifikasi', 'Belum Memilih'),

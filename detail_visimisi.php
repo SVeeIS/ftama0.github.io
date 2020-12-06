@@ -86,7 +86,7 @@ $foto = $ambildata3->fetchAll();
 			<section id="one">
 				<div class="inner">
 					<header class="major">
-						<h2>Visi & Misi Calon Kahim dan Wakahim HMTI 2021 - No.01</h2>
+						<h2>Visi & Misi Calon Kahim dan Wakahim HMTI 2021 - No.0<?php echo $urutan; ?></h2>
 					</header>
 				</div>
 			</section>

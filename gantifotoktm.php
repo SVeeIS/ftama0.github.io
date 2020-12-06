@@ -1,14 +1,42 @@
+<?php
+    require_once("koneksi.php");
+    $nim = $_GET['nim'];
+    $ambildata=$pdo_conn->prepare("SELECT * from user WHERE nim_user=".$nim);
+    $ambildata->execute();
+    $user = $ambildata->fetchAll();
+    
+    if(isset($_POST['update'])){
+        $foto=$_FILES["foto"]["name"];
+        move_uploaded_file($_FILES["foto"]["tmp_name"],"images/".$_FILES["foto"]["name"]);
+        $sql="UPDATE user SET foto_ktm='$foto' WHERE nim_user='$nim'";
+        $statement 	= $pdo_conn->prepare("$sql");
+        $statement->execute();
+        
+        if($statement){
+            echo '<script type="text/javascript">'; 
+            echo 'alert("Foto Anda Berhasil Diedit!");'; 
+            echo 'window.location.href = "detail_user.php?nim=$nim";';
+            echo '</script>';
+        }else {
+            echo "<script type='text/javascript'>
+                    alert('Terjadi kesalahan, Silahkan coba lagi!.'); 
+                    document.location = 'gantifotoktm.php?nim=$nim'; 
+                </script>";
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar</title>
+    <title>Ganti Foto KTM</title>
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="icon" href="Logo/HMTI2020.png">
     <noscript>
-        <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
 </head>
 
 <body class="is-preload">
@@ -21,55 +49,37 @@
             <a href="#" class="logo"><strong>Pemilu</strong> <span>HMTI 2021</span></a>
         </header>
 
-        <!-- SignUp -->
+        <h2 style="padding-left:20%;">Edit Foto KTM</h2>
         <section id="contact">
             <div class="inner">
                 <section>
-                    <form method="post" action="registrasi.php" id="myForm" onsubmit="return valid(this);" enctype="multipart/form-data">
+                    <form method="post" enctype="multipart/form-data">
                         <div class="fields">
                             <div class="field half">
-                                <label for="name">Nama</label>
-                                <input type="text" name="nama" id="name" required/>
+                                <label for="Foto">Foto Sekarang</label>
+                                    <img src="images/<?php echo htmlentities($user[0]['foto_ktm']);?>" width="300" height="200" style="border:solid 1px #000">
                             </div>
                             <div class="field half">
-                                <label for="NIM">NIM</label>
-                                <input type="text" name="nim" id="nim" required/>
-                            </div>
-                            <div class="field half">
-                                <label for="password">Password</label>
-                                <input type="password" name="password" id="password" required/>
-                            </div>
-                            <div class="field half">
-                                <label for="angkatan">Angkatan</label>
-                                <input type="text" name="angkatan" id="angkatan" required/>
-                            </div>
-                            <div class="field half">
-                                <label for="Foto">Foto selfie + KTM</label>
-                                <input type="file" name="foto" id="foto" required/>
-                            </div>
-                            <div class="field half">
-                                <label for="ktm">Scan KTM</label>
-                                <input type="file" name="ktm" id="ktm" required/>
+                                <label for="ktm">Upload Foto Baru</label>
+                                <input type="file" name="foto" required>
                             </div>
                         </div>
                         <ul class="actions">
-                            <li><input type="submit" value="Daftar" class="primary" /></li>
-                            <li><input type="reset" value="Reset" /></li>
+                            <li> <input type="submit" name="update" class="button" value="Edit Data"></li>
                         </ul>
                     </form>
                 </section>
                 <section class="split">
                     <section>
                         <div class="contact-method">
-                            <h1>Sudah punya Akun ?</h1>
-                            <button type="button" onclick="window.location.href='login.php'">Masuk</button>
+                            <h3>Perhatikan saat mengisi data !</h3>
+                            <p>Tolong masukkan Scan/Foto KTM yang dapat terbaca dengan jelas</p>
                         </div>
                     </section>
                 </section>
             </div>
         </section>
 
-        <!-- Footer -->
         <footer id="footer">
             <div class="inner">
                 <ul class="icons">
@@ -88,7 +98,6 @@
                 </ul>
             </div>
         </footer>
-
     </div>
 
     <!-- Scripts -->
@@ -99,7 +108,6 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-
 </body>
 
 </html>

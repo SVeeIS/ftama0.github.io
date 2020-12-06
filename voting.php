@@ -112,15 +112,26 @@ $user = $ambildata3->fetchAll();
 							<ul class="actions">
 								<?php
 								if(!empty($user)){
-									if($user[0]["status_vote"]=="Belum Memilih"){ ?>
-										<li><a href='prosesvoting.php?no_urut=<?php echo $ketua[$i]['no_urut']; ?>?&nim=<?php echo $user[0]['nim_user']; ?>' class='button' onclick="return confirm('Anda Yakin Ingin Memilih Pasangan Ini?')">Vote</a></li>
-								<?php }
+									if($user[0]["status_registrasi"]=="Verifikasi Berhasil"){ ?>
+										<?php
+										if($user[0]["status_vote"]=="Belum Memilih"){ ?>
+											<li><a href='prosesvoting.php?no_urut=<?php echo $ketua[$i]['no_urut']; ?>?&nim=<?php echo $user[0]['nim_user']; ?>' class='button' onclick="return confirm('Anda Yakin Ingin Memilih Pasangan Ini?')">Vote</a></li>
+										<?php 
+										}
+										else{ ?>
+											<li><a href="status_voting.php" class="button fit">Lihat Hasil Voting</a></li>
+										<?Php
+										}
+									}
 									else{ ?>
-										<li><a href="status_voting.php" class="button fit">Lihat Hasil Voting</a></li>
-								<?php }
-								}else{ ?>
+										<li><a href="detail_user.php" class="button fit">Lihat Status Anda</a></li>
+									<?php 
+									}
+								}
+								else{ ?>
 									<li><a href="login.html" class="button fit">Masuk Untuk Vote</a></li>
-								<?php }?>
+								<?php 
+								}?>
 							</ul>
 						</div>
 					</div>

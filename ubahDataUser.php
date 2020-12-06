@@ -41,7 +41,7 @@
                             </div>
                             <div class="field half">
                                 <label for="NIM">NIM</label>
-                                <input type="text" name="nim" required value="<?php echo $user[0]['nim_user']; ?>">
+                                <input type="text" name="nim" readonly value="<?php echo $user[0]['nim_user']; ?>">
                             </div>
                             <div class="field half">
                                 <label for="password">Password</label>
@@ -54,11 +54,17 @@
                             </div>
                             <div class="field half">
                                 <label for="Foto">Foto selfie + KTM</label>
-                                <input type="file" name="selfie" required>
+                                    <img src="images/<?php echo htmlentities($user[0]['foto_user']);?>" width="300" height="200" style="border:solid 1px #000">
+									<div class="field half">
+                                        <a href="gantifotouser.php?nim=<?php echo htmlentities($user[0]['nim_user'])?>">Ganti Foto</a>			
+                                    </div>
                             </div>
                             <div class="field half">
                                 <label for="ktm">Scan KTM</label>
-                                <input type="file" name="ktm" required>
+                                    <img src="images/<?php echo htmlentities($user[0]['foto_ktm']);?>" width="300" height="200" style="border:solid 1px #000">
+                                    <div class="field half">
+                                        <a href="gantifotoktm.php?nim=<?php echo htmlentities($user[0]['nim_user'])?>">Ganti Foto</a>			
+                                    </div>
                             </div>
                         </div>
                         <ul class="actions">
