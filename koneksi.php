@@ -4,8 +4,22 @@ $server="localhost:$port";
 $user="azure";
 $pass="6#vWHD_$";
 $db="localdb";
-$pdo_conn=mysqli_connect($server,$user,$pass,$db);
-if (! $pdo_conn){
-echo "Failed Connection!";
+
+$mysqli = new mysqli("$server","$user","$pass","$db");
+
+// Check connection
+if ($mysqli -> connect_errno) {
+  echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+  exit();
 }
+
+// Perform query
+if ($result = $mysqli) {
+  echo "Koneksi berhasil!";
+  // Free result set
+  $result -> free_result();
+}
+
+$mysqli -> close();
 ?>
+
