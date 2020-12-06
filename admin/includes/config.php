@@ -1,6 +1,7 @@
 <?php
 # Konek ke Web Server Lokal
-$myHost="localhost:54042";
+$port=54042;
+$myHost="localhost:$port";
 $myUser	= "azure";
 $myPass	= "6#vWHD_$";
 $myDbs	= "pemilu";
