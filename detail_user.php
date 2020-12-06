@@ -14,11 +14,11 @@ $biodata = $ambildata->fetchAll();
     <title>Detail Akun</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="assets/css/main.css" />
-        <link rel="icon" href="Logo/HMTI2020.png">
-        <noscript>
-            <link rel="stylesheet" href="assets/css/noscript.css" />
-        </noscript>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="icon" href="Logo/HMTI2020.png">
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
 </head>
 
 <body class="is-preload">
@@ -37,12 +37,12 @@ $biodata = $ambildata->fetchAll();
         <!-- Menu -->
         <nav id="menu">
             <ul class="links">
-				<li><a href="beranda.php">Beranda</a></li>
-				<li><a href="biodata.php">Biodata</a></li>
-				<li><a href="visimisi.php">Visi & Misi</a></li>
-				<li><a href="timeline.php">Timeline</a></li>
-				<li><a href="voting.php">Voting</a></li>
-				<li><a href="status_voting.php">Status Pemilihan</a></li>
+                <li><a href="beranda.php">Beranda</a></li>
+                <li><a href="biodata.php">Biodata</a></li>
+                <li><a href="visimisi.php">Visi & Misi</a></li>
+                <li><a href="timeline.php">Timeline</a></li>
+                <li><a href="voting.php">Voting</a></li>
+                <li><a href="status_voting.php">Status Pemilihan</a></li>
             </ul>
             <ul class="actions stacked">
                 <li><a href="detail_user.php" class="button primary fit">Detail Akun</a></li>
@@ -82,8 +82,18 @@ $biodata = $ambildata->fetchAll();
             <section id="two" class="spotlights">
                 <section>
                     <a href="#" class="image">
-                        <img src="images/<?php echo $biodata[0]["foto_user"]; ?>" alt="" data-position="center center" />
-                        <img src="images/<?php echo $biodata[0]["foto_ktm"]; ?>" alt="" data-position="center center" />
+                        <center>
+                            <h3>Foto Profil
+                                <div style="width:50%;"> <img src="images/<?php echo $biodata[0]["foto_user"]; ?>"
+                                        alt="" data-position="center center" /></div>
+                            </h3>
+                        </center>
+                        <center>
+                            <h3>Foto KTM
+                                <div style="width:50%;"> <img src="images/<?php echo $biodata[0]["foto_ktm"]; ?>" alt=""
+                                        data-position="center center" /> </div>
+                            </h3>
+                        </center>
                     </a>
                     <div class="content">
                         <div class="inner">
@@ -106,9 +116,10 @@ $biodata = $ambildata->fetchAll();
                             </div>
                             <?php
                             if($biodata[0]["status_registrasi"]=="Menunggu Verifikasi"){ ?>
-                                <ul class="actions">
-                                    <li><a href="ubahDataUser.php?nim=<?php echo $biodata[0]['nim_user']; ?>" class="button">Ubah Data</a></li>
-                                </ul>
+                            <ul class="actions">
+                                <li><a href="ubahDataUser.php?nim=<?php echo $biodata[0]['nim_user']; ?>"
+                                        class="button">Ubah Data</a></li>
+                            </ul>
                             <?php }?>
                         </div>
                     </div>
