@@ -26,5 +26,6 @@
 					</ul>
 				</li>
 				<li><a href="timeline.php"><i class="fa fa-calendar"></i>Timeline</a></li>
+				<li><a href="../logout.php"><i class="fa fa-sign-out"></i>Logout</a></li>
 			</ul>
 	</nav>
