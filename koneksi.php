@@ -4,8 +4,8 @@ $server="localhost:$port";
 $user="azure";
 $pass="6#vWHD_$";
 $db="localdb";
-$koneksidb=mysqli_connect( $server, $user, $pass, $db);
-if (! $koneksidb){
-echo "Failed Connection !";
+$pdo_conn=mysqli_connect($server,$user,$pass,$db);
+if (! $pdo_conn){
+echo "Failed Connection!";
 }
 ?>
