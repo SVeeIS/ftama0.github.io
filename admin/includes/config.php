@@ -1,9 +1,10 @@
 <?php
 # Konek ke Web Server Lokal
-$myHost	= "localhost";
-$myUser	= "root";
-$myPass	= "";
-$myDbs	= "pemilu";
+$port=54042;
+$server="localhost:$port";
+$myUser	= "azure";
+$myPass	= "6#vWHD_$";
+$myDbs	= "localdb";
 
 $koneksidb = mysqli_connect( $myHost, $myUser, $myPass, $myDbs);
 if (! $koneksidb) {
