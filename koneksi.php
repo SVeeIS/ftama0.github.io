@@ -13,13 +13,7 @@ if ($pdo_conn -> connect_errno) {
   exit();
 }
 
-// Perform query
-if ($result = $pdo_conn -> query("SELECT no_urut FROM vote")) {
-  $row = $result->fetch_row();
-  echo "<h1>$row[0]</h1>";
-  // Free result set
-  $result -> free_result();
+if (! $koneksidb) {
+  echo "Failed Connection !";
 }
-
-$pdo_conn -> close();
 ?>
