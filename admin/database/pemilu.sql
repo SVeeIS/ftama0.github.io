@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2020 at 07:46 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.8
+-- Generation Time: Dec 06, 2020 at 03:18 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -87,8 +87,14 @@ CREATE TABLE `misi` (
 --
 
 INSERT INTO `misi` (`id_misi`, `no_urut`, `isi_misi`) VALUES
-(1, 1, '1. Memperkenalkan   Himpunan   Mahasiswa   Teknologi   Informasi Kepada Pihak Internal Dan Eksternal Universitas Lambung Mangkurat.\r\n2. Memaksimalkan   Dan   Menjalankan   Program   Kerja   Himpunan Mahasiswa Teknologi Informasi.\r\n3. Mengembangkan Potensi Mahasiswa Jurusan Teknologi Informasi.\r\n4. Menjalin Hubungan Baik Dan Atau Kerja Sama Dengan Pihak Internal Dan Eksternal Universitas Lambung Mangkurat.'),
-(2, 2, '1. Menjalin hubungan yang baik antar civitas akademika Teknologi Informasin FT ULM.\r\n2. Meningkatkan kualitas SDM Teknologi Informasin FT ULM demi terwujudnya SDM Teknologi Informasin FT ULM yang unggul.\r\n3. Menciptakan HMTI sebagai wadah untuk menampung dan menyalurkan aspirasi mahasiswa Teknologi Informasin FT ULM.\r\n4. Sebagai sarana untuk pemberdayaan potensi mahasiswa sekaligus sebagai pembinaan dan pengembangan aktif dalam diri mahasiswa.');
+(1, 1, 'Memperkenalkan   Himpunan   Mahasiswa   Teknologi   Informasi Kepada Pihak Internal Dan Eksternal Universitas Lambung Mangkurat.'),
+(2, 2, 'Menjalin hubungan yang baik antar civitas akademika Teknologi Informasin FT ULM.'),
+(3, 1, 'Memaksimalkan Dan Menjalankan Program Kerja Himpunan Mahasiswa Teknologi Informasi.'),
+(4, 1, 'Mengembangkan Potensi Mahasiswa Jurusan Teknologi Informasi.'),
+(5, 1, 'Menjalin Hubungan Baik Dan Atau Kerja Sama Dengan Pihak Internal Dan Eksternal Universitas Lambung Mangkurat.'),
+(6, 2, 'Meningkatkan kualitas SDM Teknologi Informasin FT ULM demi terwujudnya SDM Teknologi Informasin FT ULM yang unggul.'),
+(7, 2, 'Menciptakan HMTI sebagai wadah untuk menampung dan menyalurkan aspirasi mahasiswa Teknologi Informasin FT ULM.'),
+(8, 2, 'Sebagai sarana untuk pemberdayaan potensi mahasiswa sekaligus sebagai pembinaan dan pengembangan aktif dalam diri mahasiswa.');
 
 -- --------------------------------------------------------
 
@@ -217,7 +223,7 @@ ALTER TABLE `vote`
 -- AUTO_INCREMENT for table `misi`
 --
 ALTER TABLE `misi`
-  MODIFY `id_misi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_misi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `visi`

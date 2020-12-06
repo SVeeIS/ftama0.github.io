@@ -25,15 +25,15 @@
         <section id="contact">
             <div class="inner">
                 <section>
-                    <form method="post" action="beranda.html" id="myForm">
+                    <form method="post" action="registrasi.php" id="myForm" onsubmit="return valid(this);" enctype="multipart/form-data">
                         <div class="fields">
                             <div class="field half">
                                 <label for="name">Nama</label>
-                                <input type="text" name="name" id="name" />
+                                <input type="text" name="nama" id="name" />
                             </div>
                             <div class="field half">
                                 <label for="NIM">NIM</label>
-                                <input type="text" name="NIM" id="nim" />
+                                <input type="text" name="nim" id="nim" />
                             </div>
                             <div class="field half">
                                 <label for="password">Password</label>

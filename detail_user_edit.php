@@ -107,6 +107,9 @@ $biodata = $ambildata->fetchAll();
                             <div class="status vote">
                                 <p><b>Status Vote</b> : <?php echo $biodata[0]["status_vote"]; ?></p>
                             </div>
+                            <ul class="actions">
+								<li><a href="ubahDataUser.php?nim=<?php echo $biodata[0]['nim_user']; ?>" class="button">Ubah Data</a></li>
+							</ul>
                         </div>
                     </div>
                 </section>

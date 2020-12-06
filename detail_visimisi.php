@@ -94,7 +94,7 @@ $foto = $ambildata3->fetchAll();
 			<!-- Two -->
 			<section id="two" class="spotlights">
 				<section>
-					<a href="generic.html" class="image">
+					<a href="images/<?php echo $foto[0]["foto_pasangan_calon"]; ?>" class="image">
 						<img src="images/<?php echo $foto[0]["foto_pasangan_calon"]; ?>" alt="" data-position="center center" />
 					</a>
 					<div class="content">
