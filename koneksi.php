@@ -1,8 +1,8 @@
 <?php
-$server	= "localhost";
-$user	= "azure";
-$password	= "6#vWHD_$";
-$db	= "localdb";
+$server="localhost";
+$user="azure";
+$password="6#vWHD_$";
+$db	= "pemilu";
 
 try { 
     $pdo_conn = new PDO('mysql:host=$server;dbname=$db', '$user', '$password',
