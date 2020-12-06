@@ -1,8 +1,20 @@
-<?php 
-try { 
-    $pdo_conn = new PDO('mysql:host=hmti.azurewebsites.net;dbname=pemilu', 'root', '',
-    array(PDO::ATTR_PERSISTENT => true)); 
-} 
-catch(PDOException $e) { echo $e->getMessage(); 
-} 
-?>
+$connectstr_dbhost = 'hmti.azurewebsites.net';
+$connectstr_dbname = 'pemilu';
+$connectstr_dbusername = '';
+$connectstr_dbpassword = 'root';
+
+foreach ($_SERVER as $key => $value) {
+  if (strpos($key, "MYSQLCONNSTR_") !== 0) {
+    continue;
+  }
+
+  $connectstr_dbhost = preg_replace("/^.*Data Source=(.+?);.*$/", "\\1", $value);
+  $connectstr_dbname = preg_replace("/^.*Database=(.+?);.*$/", "\\1", $value);
+  $connectstr_dbusername = preg_replace("/^.*User Id=(.+?);.*$/", "\\1", $value);
+  $connectstr_dbpassword = preg_replace("/^.*Password=(.+?)$/", "\\1", $value);
+}
+
+define('DB_NAME', $connectstr_dbname);
+define('DB_USER', $connectstr_dbusername);
+define('DB_PASSWORD', $connectstr_dbpassword);
+define('DB_HOST', $connectstr_dbhost);
