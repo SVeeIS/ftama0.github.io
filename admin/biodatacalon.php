@@ -4,7 +4,8 @@ error_reporting(0);
 include('includes/config.php');
 include('includes/library.php');
 if(strlen($_SESSION['login_admin'])==0){	
-	header('location:index.php');
+	header('location:../login.php');
+
 } else{ ?>
 <!doctype html>
 <html lang="en" class="no-js">
