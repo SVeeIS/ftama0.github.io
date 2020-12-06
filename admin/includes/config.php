@@ -3,7 +3,7 @@
 $server="localhost:54042";
 $myUser	= "azure";
 $myPass	= "6#vWHD_$";
-$myDbs	= "localdb";
+$myDbs	= "pemilu";
 
 $koneksidb = mysqli_connect( $myHost, $myUser, $myPass, $myDbs);
 if (! $koneksidb) {
