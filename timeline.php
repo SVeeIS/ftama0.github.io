@@ -1,3 +1,8 @@
+<?php
+include('admin/includes/config.php');
+include('admin/includes/library.php');
+?>
+
 <!DOCTYPE HTML>
 <html>
 
@@ -72,9 +77,22 @@
 					<header class="major">
 						<h2>Timeline Pemilihan Umum Kahim dan Wakahim HMTI 2021</h2>
 					</header>
-					<p><b>25 Desember 2020- 31 Desember 2020 :</b> Pendaftaran Akun</p>
-					<p><b>1 Januari 2021 :</b> Voting Pasangan Calon Kahim & Wakahim HMTI 2021</p>
-					<p><b>2 Januari 2021 :</b> Pengumuman</p>
+					<?php 
+						$sqltimeline = "SELECT * FROM timeline ORDER BY tanggal_mulai ASC";
+						$querytimeline = mysqli_query($koneksidb,$sqltimeline);
+						while ($result = mysqli_fetch_array($querytimeline)){
+							if($result['tanggal_akhir'] == '0000-00-00'){ ?>
+								<p><b><?php echo Indonesia2Tgl($result['tanggal_mulai']);?> :</b> <?php echo htmlentities($result['kegiatan']);?></p>
+								<?php 
+							}
+							else{ ?>
+								<p><b><?php echo Indonesia2Tgl($result['tanggal_mulai']);?> - <?php echo Indonesia2Tgl($result['tanggal_akhir']);?> :</b> <?php echo htmlentities($result['kegiatan']);?></p>
+							<?php
+							}
+					?>
+
+					<?php 
+						}?>
 				</div>
 			</section>
 		</div>

@@ -2,6 +2,7 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
+include('includes/format_rupiah.php');
 include('includes/library.php');
 if(strlen($_SESSION['alogin'])==0){	
 	header('location:index.php');
@@ -16,7 +17,7 @@ if(strlen($_SESSION['alogin'])==0){
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	
-	<title>Pemilu HMTI | Admin Kelola Biodata Calon</title>
+	<title>Pemilu HMTI | Admin Kelola Timeline</title>
 
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -62,46 +63,39 @@ if(strlen($_SESSION['alogin'])==0){
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-12">
-						<h2 class="page-title">Kelola Biodata Calon Ketua dan Wakil Ketua HMTI</h2>
+						<h2 class="page-title">Kelola Jadwal Penting Pemilu</h2>
 						<!-- Zero Configuration Table -->
 						<div class="panel panel-default">
-							<div class="panel-heading">Daftar Calon Ketua dan Wakil Ketua HMTI</div>
+							<div class="panel-heading">Daftar Timeline Pemilu HMTI</div>
 							<div class="panel-body">
 							<?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
 				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
 								<table id="zctb" class="display table table-striped table-bordered table-hover" cellspacing="0" width="100%">
 									<thead>
 										<tr>
-											<th>Nama</th>
-											<th>NIM</th>
-											<th>Angkatan</th>
-											<th>Tempat, Tanggal Lahir</th>
-											<th>Jenis Kelamin</th>
-											<th>Foto</th>
-											<th>Akun Instagram</th>
-											<th><a href="tambahcalon.php"><span class="fa fa-plus-circle"></span>Tambah Calon</a></th>
+											<th>No.</th>
+											<th>Tanggal Mulai</th>
+											<th>Tanggal Akhir</th>
+											<th>Kegiatan</th>
+											<th><a href="tambahtimeline.php"><span class="fa fa-plus-circle"></span>Tambah Timeline Kegiatan</a></th>
 										</tr>
 									</thead>
 									<tbody>
 									<?php 
 										$nomor = 0;
-										$sqlbiodata = "SELECT * FROM biodata_calon ORDER BY nama_calon ASC";
-										$querybiodata = mysqli_query($koneksidb,$sqlbiodata);
-										while ($result = mysqli_fetch_array($querybiodata)){
+										$sqltimeline = "SELECT * FROM timeline";
+										$querytimeline = mysqli_query($koneksidb,$sqltimeline);
+										while ($result = mysqli_fetch_array($querytimeline)){
 											$nomor++;
 											?>
 										<tr>
-											<td><?php echo htmlentities($result['nama_calon']);?></td>
-											<td><?php echo htmlentities($result['nim_calon']);?></td>
-											<td><?php echo htmlentities($result['angkatan']);?></td>
-											<td><?php echo htmlentities($result['tempat_lahir']);?>, <?php echo IndonesiaTgl(htmlentities($result['tanggal_lahir']));?></td>
-											<td><?php echo htmlentities($result['jenis_kelamin']);?></td>
-											<td><a href="../images/<?php echo htmlentities($result['foto']);?>" target="blank"><img src="../images/<?php echo htmlentities($result['foto']);?>" width="40" height="30"></a></td>
-											<td><?php echo htmlentities($result['instagram']);?></td>
+                                            <td><?php echo $nomor;?></td>
+											<td><?php echo Indonesia2Tgl($result['tanggal_mulai']);?></td>
+											<td><?php echo Indonesia2Tgl($result['tanggal_akhir']);?></td>
+											<td><?php echo $result['kegiatan']; ?></td>
 											<td class="text-center">
-											    <a href="#myModal" data-toggle="modal" data-load-code="<?php echo $result['nim_calon']; ?>" data-remote-target="#myModal .modal-body"><span class="glyphicon glyphicon-eye-open"></span></a>&nbsp;&nbsp;&nbsp;
-												<a href="calonedit.php?id=<?php echo $result['nim_calon'];?>"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
-												<a href="calondel.php?id=<?php echo $result['nim_calon'];?>" onclick="return confirm('Apakah anda akan menghapus Biodata <?php echo $result['nama_calon'];?>?');"><i class="fa fa-close"></i></a></td>
+											    <a href="timelineedit.php?id=<?php echo $result['id_timeline'];?>"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
+												<a href="timelinedel.php?id=<?php echo $result['id_timeline'];?>" onclick="return confirm('Apakah anda akan menghapus timeline untuk kegiatan <?php echo $result['kegiatan'];?>?');"><i class="fa fa-close"></i></a></td>
 										</tr>
 										<?php } ?>
 									</tbody>
@@ -143,7 +137,7 @@ if(strlen($_SESSION['alogin'])==0){
 					var $this = $(this);
 					var code = $this.data('load-code');
 					if(code) {
-						$($this.data('remote-target')).load('bioview.php?code='+code);
+						$($this.data('remote-target')).load('calonview.php?code='+code);
 						app.code = code;
 						
 					}

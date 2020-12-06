@@ -15,7 +15,7 @@ $query 	= mysqli_query($koneksidb,$sql);
 if($query){
 	echo "<script type='text/javascript'>
 			alert('Registrasi Berhasil'); 
-			document.location = 'login.html'; 
+			document.location = 'login.php'; 
 		</script>";
 }else {
 			echo "No Error : ".mysqli_errno($koneksidb);
