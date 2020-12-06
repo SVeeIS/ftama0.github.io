@@ -5,21 +5,21 @@ $user="azure";
 $pass="6#vWHD_$";
 $db="localdb";
 
-$mysqli = new mysqli("$server","$user","$pass","$db");
+$pdo_conn = new mysqli("$server","$user","$pass","$db");
 
 // Check connection
-if ($mysqli -> connect_errno) {
-  echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
+if ($pdo_conn -> connect_errno) {
+  echo "Failed to connect to MySQL: " . $pdo_conn -> connect_error;
   exit();
 }
 
 // Perform query
-if ($result = $mysqli) {
+if ($result = $pdo_conn) {
   echo "Koneksi berhasil!";
   // Free result set
   $result -> free_result();
 }
 
-$mysqli -> close();
+$pdo_conn -> close();
 ?>
 
