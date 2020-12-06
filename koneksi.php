@@ -5,7 +5,7 @@ $user="azure";
 $pass="6#vWHD_$";
 $db="localdb";
 
-$pdo_conn = new mysqli("$server","$user","$pass","$db");
+$pdo_conn = mysqli_connect("$server","$user","$pass","$db");
 
 // Check connection
 if ($pdo_conn -> connect_errno) {
