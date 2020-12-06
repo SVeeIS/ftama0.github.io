@@ -5,11 +5,10 @@ $user	= "azure";
 $password	= "6#vWHD_$";
 $db	= "localdb";
 
-$pdo_conn = new mysqli("$server","$user","$password","$db");
-
-// Check connection
-if ($pdo_conn -> connect_errno) {
-  echo "Failed to connect to MySQL: " . $pdo_conn -> connect_error;
-  exit();
-}
+try { 
+    $pdo_conn = new PDO('mysql:host=$server;dbname=$db', '$user', '$password',
+    array(PDO::ATTR_PERSISTENT => true)); 
+} 
+catch(PDOException $e) { echo $e->getMessage(); 
+} 
 ?>
