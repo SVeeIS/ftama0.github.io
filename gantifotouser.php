@@ -8,7 +8,7 @@
     if(isset($_POST['update'])){
         $foto=$_FILES["foto"]["name"];
         move_uploaded_file($_FILES["foto"]["tmp_name"],"images/".$_FILES["foto"]["name"]);
-        $sql="UPDATE user SET foto_user='$foto' WHERE nim_user='$nim'";
+        $sql="UPDATE user SET foto_user='$foto', status_registrasi='Menunggu Verifikasi' WHERE nim_user='$nim'";
         $statement 	= $pdo_conn->prepare("$sql");
         $statement->execute();
         
