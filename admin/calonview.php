@@ -88,6 +88,7 @@ else {
 	</div>
 	</form>
 	<div class="modal-footer">
+    <button class="btn btn-default" onclick="window.location.href='voteedit.php?id=<?php echo $result['no_urut'];?>'">Kosongkan Vote</button>
 	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 	</div>
 
