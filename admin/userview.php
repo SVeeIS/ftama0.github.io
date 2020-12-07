@@ -73,7 +73,6 @@ else {
 	</div>
 	</form>
 	<div class="modal-footer">
-    <button class="btn btn-default" onclick="window.location.href='useredit.php?id=<?php echo $Kode;?>&status=Belum+Memilih'">Batalkan Pemilihan</button>
 	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 	</div>
 
