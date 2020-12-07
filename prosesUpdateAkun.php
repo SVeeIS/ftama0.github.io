@@ -5,7 +5,7 @@ $nim = $_POST['nim'];
 $pass = $_POST['password'];
 $angkatan = $_POST['angkatan'];
 
-$sql="UPDATE user SET nama_user='$nama', password='$pass', angkatan='$angkatan' WHERE nim_user='$nim'";
+$sql="UPDATE user SET nama_user='$nama', password='$pass', angkatan='$angkatan', status_registrasi='Menunggu Verifikasi' WHERE nim_user='$nim'";
 $statement 	= $pdo_conn->prepare("$sql");
 $statement->execute();
 

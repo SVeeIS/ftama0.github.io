@@ -120,6 +120,12 @@ $biodata = $ambildata->fetchAll();
                                 <li><a href="ubahDataUser.php?nim=<?php echo $biodata[0]['nim_user']; ?>"
                                         class="button">Ubah Data</a></li>
                             </ul>
+                            <?php }
+                            else if($biodata[0]["status_registrasi"]=="Verifikasi Gagal"){ ?>
+                            <ul class="actions">
+                                <li><a href="ubahDataUser.php?nim=<?php echo $biodata[0]['nim_user']; ?>"
+                                        class="button">Ubah Data</a></li>
+                            </ul>
                             <?php }?>
                         </div>
                     </div>
