@@ -29,6 +29,7 @@ if(isset($_POST['update'])){
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	
+	<link rel="icon" href="../Logo/HMTI2020.png">
 	<title>Pemilu HMTI | Admin Update Foto Pasangan Calon</title>
 
 	<!-- Font awesome -->

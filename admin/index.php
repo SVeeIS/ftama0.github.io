@@ -14,6 +14,7 @@ include('includes/config.php');
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	
+	<link rel="icon" href="../Logo/HMTI2020.png">
 	<title>Pemilu HMTI | Admin Dashboard</title>
 
 	<!-- Font awesome -->
