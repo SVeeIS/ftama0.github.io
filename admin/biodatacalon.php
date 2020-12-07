@@ -96,7 +96,7 @@ if(strlen($_SESSION['login_admin'])==0){
 											<td><?php echo htmlentities($result['nama_calon']);?></td>
 											<td><?php echo htmlentities($result['nim_calon']);?></td>
 											<td><?php echo htmlentities($result['angkatan']);?></td>
-											<td><?php echo htmlentities($result['tempat_lahir']);?>, <?php echo IndonesiaTgl(htmlentities($result['tanggal_lahir']));?></td>
+											<td><?php echo htmlentities($result['tempat_lahir']);?>, <?php echo  Indonesia2Tgl($result['tanggal_lahir']);?></td>
 											<td><?php echo htmlentities($result['jenis_kelamin']);?></td>
 											<td><a href="../images/<?php echo htmlentities($result['foto']);?>" target="blank"><img src="../images/<?php echo htmlentities($result['foto']);?>" width="40" height="30"></a></td>
 											<td><?php echo htmlentities($result['instagram']);?></td>

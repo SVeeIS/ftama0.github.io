@@ -85,6 +85,7 @@ else{
     		        								    <th>Angkatan</th>
     			        							    <th>Foto User</th>
     			    	    						    <th>Foto KTM</th>
+														<th>Status Registrasi</th>
     				    	    					    <th>Aksi</th>
 				    		    				    </tr>
         							    		</thead>
@@ -102,6 +103,7 @@ else{
 										        	<td><?php echo htmlentities($result['angkatan']);?></td>
 											        <td><a href="../images/<?php echo htmlentities($result['foto_user']);?>" target="blank"><img src="../images/<?php echo htmlentities($result['foto_user']);?>" width="40" height="30"></a></td>
                                                     <td><a href="../images/<?php echo htmlentities($result['foto_ktm']);?>" target="blank"><img src="../images/<?php echo htmlentities($result['foto_ktm']);?>" width="40" height="30"></a></td>
+													<td><?php echo htmlentities($result['status_registrasi']);?></td>
     											    <td>
                                                         <a href="#myModal" data-toggle="modal" data-load-code="<?php echo $result['nim_user']; ?>" data-remote-target="#myModal .modal-body"><span class="glyphicon glyphicon-eye-open"></span></a>&nbsp;&nbsp;&nbsp;
     		    									</td>
