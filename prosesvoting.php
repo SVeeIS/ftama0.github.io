@@ -3,13 +3,7 @@ require_once("koneksi.php");
 $no_urut = $_GET['no_urut'];
 $nim = $_GET['nim'];
 
-$ambildata2=$pdo_conn->prepare("SELECT * FROM vote WHERE no_urut=".$no_urut);
-$ambildata2->execute();
-$voting = $ambildata2->fetchAll();
-
-$jumlahvote = @($voting[0]['jumlah_vote']) + 1;
-
-$sql="UPDATE user, vote SET status_vote='Sudah Memilih', jumlah_vote='$jumlahvote' WHERE nim_user='$nim' AND no_urut='$no_urut'";
+$sql="UPDATE user, vote SET status_vote='Sudah Memilih', jumlah_vote=jumlah_vote+1 WHERE nim_user='$nim' AND no_urut='$no_urut'";
 $statement 	= $pdo_conn->prepare("$sql");
 $statement->execute();
 
