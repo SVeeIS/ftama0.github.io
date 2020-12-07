@@ -69,6 +69,7 @@
                         </div>
                         <ul class="actions">
                             <li> <input type="submit" name="update" class="button" value="Edit Data"></li>
+                            <li><a href="detail_user.php" class="button fit">Batal</a></li>
                         </ul>
                     </form>
                 </section>

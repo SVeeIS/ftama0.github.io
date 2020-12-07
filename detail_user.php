@@ -28,7 +28,7 @@ $biodata = $ambildata->fetchAll();
 
         <!-- Header -->
         <header id="header" class="alt">
-            <a href="beranda.html" class="logo"><strong>Pemilu</strong> <span>HMTI 2021</span></a>
+            <a href="beranda.php" class="logo"><strong>Pemilu</strong> <span>HMTI 2021</span></a>
             <nav>
                 <a href="#menu">Menu</a>
             </nav>
