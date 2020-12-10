@@ -92,16 +92,14 @@ if(isset($_POST['update'])){
 											<div class="form-group">
 											<label class="col-sm-4 control-label">Foto Sekarang</label>
 											<?php 
-												$id=intval($_GET['nim_calon']);
-												$sql ="SELECT foto from biodata_calon where nim_calon='$id'";
-												$query	= mysqli_query($koneksidb, $sql);
-												$cnt=1;
-												while ($result = mysqli_fetch_array($query)){
-												?>
+										    	$Kode = $_GET['nim_calon'];
+                                            	$mySql ="SELECT * FROM biodata_calon WHERE nim_calon ='$Kode'";
+                                            	$myQry = mysqli_query($koneksidb, $mySql);
+                                            	$result = mysqli_fetch_array($myQry);
+											?>
 												<div class="col-sm-8">
-													<img src="../images/<?php echo htmlentities($result['foto']);?>" width="300" height="200" style="border:solid 1px #000">
+													<img src="../images/<?php echo $result['foto'];?>" width="300" height="200" style="border:solid 1px #000">
 												</div>
-											<?php }?>
 											</div>
 
 											<div class="form-group">
