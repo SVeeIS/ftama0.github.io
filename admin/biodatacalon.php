@@ -102,7 +102,7 @@ if(strlen($_SESSION['login_admin'])==0){
 											<td><?php echo htmlentities($result['instagram']);?></td>
 											<td class="text-center">
 											    <a href="#myModal" data-toggle="modal" data-load-code="<?php echo $result['nim_calon']; ?>" data-remote-target="#myModal .modal-body"><span class="glyphicon glyphicon-eye-open"></span></a>&nbsp;&nbsp;&nbsp;
-												<a href="calonedit.php?id=<?php echo $result['nim_calon'];?>"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
+												<a href="bioedit.php?id=<?php echo $result['nim_calon'];?>"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
 												<a href="calondel.php?id=<?php echo $result['nim_calon'];?>" onclick="return confirm('Apakah anda akan menghapus Biodata <?php echo $result['nama_calon'];?>?');"><i class="fa fa-close"></i></a></td>
 										</tr>
 										<?php } ?>
