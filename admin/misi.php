@@ -17,6 +17,7 @@ if(strlen($_SESSION['login_admin'])==0){
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	
+	<link rel="icon" href="../Logo/HMTI2020.png">
 	<title>Pemilu HMTI | Admin Kelola Misi</title>
 
 	<!-- Font awesome -->

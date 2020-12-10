@@ -16,7 +16,8 @@ header('location:../login.php');
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
-	
+
+	<link rel="icon" href="../Logo/HMTI2020.png">	
 	<title>Pemilu HMTI | Admin Edit Visi</title>
 
 	<!-- Font awesome -->
