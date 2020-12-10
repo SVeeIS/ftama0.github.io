@@ -46,7 +46,7 @@ $voting = $ambildata3->fetchAll();
                     <h1>Status Pemilihan </h1>
                 </header>
                 <div class="content">
-                    <p>Status Pemlihan Calon Kahim dan Wakahim HMTI 2021</p>
+                    <p>Status Pemilihan Calon Kahim dan Wakahim HMTI 2021</p>
                 </div>
             </div>
         </section>
@@ -58,7 +58,7 @@ $voting = $ambildata3->fetchAll();
             <section id="one">
                 <div class="inner">
                     <header class="major">
-                        <h2>Status Pemlihan Umum Kahim dan Wakahim HMTI 2021</h2>
+                        <h2>Status Pemilihan Umum Kahim dan Wakahim HMTI 2021</h2>
                     </header>
                 </div>
             </section>
