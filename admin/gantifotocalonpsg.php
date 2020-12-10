@@ -1,11 +1,6 @@
 <?php
-include('../ceklogin.php');
-error_reporting(0);
 include('includes/config.php');
-if(strlen($_SESSION['login_admin'])==0){
-	header('location:../login.php');
 
-}else{
 if(isset($_POST['update'])){
 	$foto=$_FILES["foto"]["name"];
 	$id=$_POST['id'];
@@ -148,4 +143,3 @@ if(isset($_POST['update'])){
 
 </body>
 </html>
-<?php } ?>
