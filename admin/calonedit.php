@@ -85,33 +85,33 @@ if(strlen($_SESSION['login_admin'])==0){
 										<div class="form-group">
 											<label class="col-sm-2 control-label">Nama Calon<span style="color:red">*</span></label>
 											<div class="col-sm-4">
-												<input type="text" name="nama" class="form-control" value="<?php echo htmlentities($result['nama_calon']);?>" required>
+												<input type="text" name="nama" class="form-control" value="<?php echo $result[0]['nama_calon'];?>" required>
 											</div>
 											<label class="col-sm-2 control-label">NIM Calon<span style="color:red">*</span></label>
 											<div class="col-sm-4">
-												<input type="text" name="nim" class="form-control" value="<?php echo htmlentities($result['nim_calon']);?>" readonly>
+												<input type="text" name="nim" class="form-control" value="<?php echo $result[0]['nim_calon'];?>" readonly>
 											</div>
 										</div>
 										
 										<div class="form-group">
 										<label class="col-sm-2 control-label">Angkatan<span style="color:red">*</span></label>
 										<div class="col-sm-4">
-											<input type="text" name="angkatan" class="form-control" value="<?php echo htmlentities($result['angkatan']);?>"required>
+											<input type="text" name="angkatan" class="form-control" value="<?php echo $result[0]['angkatan'];?>"required>
 										</div>
 										<label class="col-sm-2 control-label">Akun Instagram<span style="color:red">*</span></label>
 										<div class="col-sm-4">
-											<input type="text" name="instagram" class="form-control" value="<?php echo htmlentities($result['instagram']);?>"required>
+											<input type="text" name="instagram" class="form-control" value="<?php echo $result[0]['instagram'];?>"required>
 										</div>
 									</div>
 
 									<div class="form-group">
 										<label class="col-sm-2 control-label">Tempat Lahir<span style="color:red">*</span></label>
 										<div class="col-sm-4">
-											<input type="text" name="tempat" class="form-control" value="<?php echo htmlentities($result['tempat_lahir']);?>"required>
+											<input type="text" name="tempat" class="form-control" value="<?php echo $result[0]['tempat_lahir'];?>"required>
 										</div>
 										<label class="col-sm-2 control-label">Tanggal Lahir<span style="color:red">*</span></label>
 										<div class="col-sm-4">
-											<input type="date" name="tanggal" class="form-control" value="<?php echo htmlentities($result['tanggal_lahir']);?>"required>
+											<input type="date" name="tanggal" class="form-control" value="<?php echo $result[0]['tanggal_lahir'];?>"required>
 										</div>
 									</div>
 
@@ -120,7 +120,7 @@ if(strlen($_SESSION['login_admin'])==0){
 										<div class="col-sm-4">
 											<select class="form-control" name="jk" required>
 												<?php
-														$jk = $result['jenis_kelamin'];
+														$jk = $result[0]['jenis_kelamin'];
 														echo "<option value='$jk' selected>".$jk."</option>";
 														echo "<option value='Laki - Laki'>Laki - Laki</option>";
 														echo "<option value='Perempuan'>Perempuan</option>";
@@ -138,8 +138,8 @@ if(strlen($_SESSION['login_admin'])==0){
 
 										<div class="form-group">
 											<div class="col-sm-4">
-												<img src="../images/<?php echo htmlentities($result['foto']);?>" width="300" height="200" style="border:solid 1px #000">
-												<a href="gantifotocalon.php?nim_calon=<?php echo htmlentities($result['nim_calon'])?>">Ganti Foto</a>
+												<img src="../images/<?php echo $result[0]['foto']);?>" width="300" height="200" style="border:solid 1px #000">
+												<a href="gantifotocalon.php?nim_calon=<?php echo $result[0]['nim_calon'])?>">Ganti Foto</a>
 											</div>
 										</div>
 																		
