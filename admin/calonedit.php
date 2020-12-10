@@ -75,10 +75,10 @@ if(strlen($_SESSION['login_admin'])==0){
 									<div class="panel-heading">Form Edit Biodata Calon Ketua atau Wakil Ketua HMTI</div>
 									<div class="panel-body">
 										<?php 
-											$id=intval($_GET['id']);
-											$sql ="SELECT * FROM biodata_calon WHERE nim_calon='$id'";
-											$query = mysqli_query($koneksidb,$sql);
-											$result = mysqli_fetch_array($query);
+										$id=intval($_GET['id']);
+										$sql ="SELECT * FROM biodata_calon WHERE nim_calon='$id'";
+										$query = mysqli_query($koneksidb,$sql);
+										$result = mysqli_fetch_array($query);
 										?>
 
 										<form method="post" class="form-horizontal" name="theform" action ="calonupdate.php" onsubmit="return valid(this);" enctype="multipart/form-data">
@@ -96,22 +96,22 @@ if(strlen($_SESSION['login_admin'])==0){
 										<div class="form-group">
 										<label class="col-sm-2 control-label">Angkatan<span style="color:red">*</span></label>
 										<div class="col-sm-4">
-											<input type="text" name="angkatan" class="form-control" value="<?php echo htmlentities($result['angkatan']);?>" required>
+											<input type="text" name="angkatan" class="form-control" value="<?php echo htmlentities($result['angkatan']);?>"required>
 										</div>
 										<label class="col-sm-2 control-label">Akun Instagram<span style="color:red">*</span></label>
 										<div class="col-sm-4">
-											<input type="text" name="instagram" class="form-control" value="<?php echo htmlentities($result['instagram']);?>" required>
+											<input type="text" name="instagram" class="form-control" value="<?php echo htmlentities($result['instagram']);?>"required>
 										</div>
 									</div>
 
 									<div class="form-group">
 										<label class="col-sm-2 control-label">Tempat Lahir<span style="color:red">*</span></label>
 										<div class="col-sm-4">
-											<input type="text" name="tempat" class="form-control" value="<?php echo htmlentities($result['tempat_lahir']);?>" required>
+											<input type="text" name="tempat" class="form-control" value="<?php echo htmlentities($result['tempat_lahir']);?>"required>
 										</div>
 										<label class="col-sm-2 control-label">Tanggal Lahir<span style="color:red">*</span></label>
 										<div class="col-sm-4">
-											<input type="date" name="tanggal" class="form-control" value="<?php echo htmlentities($result['tanggal_lahir']);?>" required>
+											<input type="date" name="tanggal" class="form-control" value="<?php echo htmlentities($result['tanggal_lahir']);?>"required>
 										</div>
 									</div>
 
