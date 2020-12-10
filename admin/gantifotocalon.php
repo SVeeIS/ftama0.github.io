@@ -14,7 +14,7 @@ if(isset($_POST['update'])){
 	$query	= mysqli_query($koneksidb, $sql);
 	echo "<script type='text/javascript'>
 			alert('Berhasil ganti gambar.');
-			document.location = 'calonedit.php?id=$id'; 
+			document.location = 'bioedit.php?id=$id'; 
 		</script>";
 }
 ?>
@@ -91,7 +91,7 @@ if(isset($_POST['update'])){
 
 											<div class="form-group">
 											<label class="col-sm-4 control-label">Foto Sekarang</label>
-												<?php 
+											<?php 
 												$id=intval($_GET['nim_calon']);
 												$sql ="SELECT foto from biodata_calon where nim_calon='$id'";
 												$query	= mysqli_query($koneksidb, $sql);
@@ -99,7 +99,7 @@ if(isset($_POST['update'])){
 												while ($result = mysqli_fetch_array($query)){
 												?>
 												<div class="col-sm-8">
-													<img src="../images/<?php echo $result['foto'];?>" width="300" height="200" style="border:solid 1px #000">
+													<img src="../images/<?php echo htmlentities($result['foto']);?>" width="300" height="200" style="border:solid 1px #000">
 												</div>
 											<?php }?>
 											</div>
