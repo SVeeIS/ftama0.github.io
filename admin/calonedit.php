@@ -75,10 +75,10 @@ if(strlen($_SESSION['login_admin'])==0){
 									<div class="panel-heading">Form Edit Biodata Calon Ketua atau Wakil Ketua HMTI</div>
 									<div class="panel-body">
 										<?php 
-										$id=intval($_GET['id']);
-										$sql ="SELECT * FROM biodata_calon WHERE nim_calon='$id'";
-										$query = mysqli_query($koneksidb,$sql);
-										$result = mysqli_fetch_array($query);
+											$id=intval($_GET['id']);
+											$sql ="SELECT * FROM biodata_calon WHERE nim_calon='$id'";
+											$query = mysqli_query($koneksidb,$sql);
+											$result = mysqli_fetch_array($query);
 										?>
 
 										<form method="post" class="form-horizontal" name="theform" action ="calonupdate.php" onsubmit="return valid(this);" enctype="multipart/form-data">
