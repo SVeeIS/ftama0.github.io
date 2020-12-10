@@ -88,7 +88,7 @@ if(isset($_POST['update'])){
 											<label class="col-sm-4 control-label">Foto Sekarang</label>
 												<?php 
 												$id=intval($_GET['nim_calon']);
-												$sql ="SELECT foto from biodata_Caloncalon where nim_calon='$id'";
+												$sql ="SELECT foto from biodata_calon where nim_calon='$id'";
 												$query	= mysqli_query($koneksidb, $sql);
 												$cnt=1;
 												while ($result = mysqli_fetch_array($query)){
