@@ -85,12 +85,10 @@ if(strlen($_SESSION['login_admin'])==0){
 										<div class="form-group">
 											<label class="col-sm-2 control-label">Nama Calon<span style="color:red">*</span></label>
 											<div class="col-sm-4">
-												<input type="hidden" name="id" class="form-control" value="<?php echo $id;?>" required>
 												<input type="text" name="nama" class="form-control" value="<?php echo htmlentities($result['nama_calon']);?>" required>
 											</div>
 											<label class="col-sm-2 control-label">NIM Calon<span style="color:red">*</span></label>
 											<div class="col-sm-4">
-												<input type="hidden" name="id" class="form-control" value="<?php echo $id;?>" required>
 												<input type="text" name="nim" class="form-control" value="<?php echo htmlentities($result['nim_calon']);?>" readonly>
 											</div>
 										</div>
