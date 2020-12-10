@@ -24,7 +24,7 @@ if($query){
 
 	echo "<script type='text/javascript'>
 			alert('Terjadi kesalahan, silahkan coba lagi!.'); 
-			document.location = 'calonedit.php?id=$nim'; 
+			document.location = 'bioedit.php?id=$nim'; 
 		</script>";
 }
 ?>
