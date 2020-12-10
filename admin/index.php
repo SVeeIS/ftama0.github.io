@@ -125,7 +125,7 @@ include('includes/config.php');
 													<div class="stat-panel-title text-uppercase">Jumlah Suara Masuk</div>
 												</div>
 											</div>
-											<a href="usersudah.php" class="block-anchor panel-footer text-center">Rincian &nbsp; <i class="fa fa-arrow-right"></i></a>
+											<a href="voting.php" class="block-anchor panel-footer text-center">Rincian &nbsp; <i class="fa fa-arrow-right"></i></a>
 										</div>
 									</div>
 									
