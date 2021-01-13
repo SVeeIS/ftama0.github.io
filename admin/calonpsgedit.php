@@ -110,7 +110,7 @@ if(strlen($_SESSION['login_admin'])==0){
 										<label class="col-sm-2 control-label">Calon Wakil Ketua HMTI<span style="color:red">*</span></label>
 										<div class="col-sm-4">
 										<select class="form-control" name="wakil" required>
-											<option value="<?php echo htmlentities($result['nim_calon_ketua']);?>"> == Tidak Berubah == </option>
+											<option value="<?php echo htmlentities($result['nim_calon_wakil']);?>"> == Tidak Berubah == </option>
 											<?php
 												while ($result2 = mysqli_fetch_array($query2)){
 											?>
